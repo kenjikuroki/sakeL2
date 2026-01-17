@@ -9,23 +9,25 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get appTitle => 'Examen Sake N1';
+  String get appTitle => 'Examen Sake N2';
 
   @override
-  String get homeTitle => 'Examen Sake N1: Estudio y Quiz';
+  String get homeTitle => 'Examen Sake N2: Estudio y Quiz';
 
   @override
-  String get homeSubtitle =>
-      '¡Domina el conocimiento del Sake en tu tiempo libre!';
+  String get homeSubtitle => '¡Domina el conocimiento avanzado del Sake!';
 
   @override
-  String get part1Title => 'Ingredientes y Conceptos';
+  String get part1Title => 'Ingredientes y Agua';
 
   @override
-  String get part2Title => 'Categorías y Grados';
+  String get part2Title => 'Proceso de Producción';
 
   @override
-  String get part3Title => 'Servicio y Almacenamiento';
+  String get part3Title => 'Etiquetas y Estilos';
+
+  @override
+  String get part4Title => 'Servicio y Maridaje';
 
   @override
   String get reviewWeakness => 'Repasar Debilidades';

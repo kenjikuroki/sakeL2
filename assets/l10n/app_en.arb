@@ -1,28 +1,32 @@
 {
   "@@locale": "en",
-  "appTitle": "Sake Exam L1",
+  "appTitle": "Sake Exam L2",
   "@appTitle": {
     "description": "The title of the application"
   },
-  "homeTitle": "Sake Exam L1: Study & Quiz",
+  "homeTitle": "Sake Exam L2: Study & Quiz",
   "@homeTitle": {
     "description": "Title shown on the home screen"
   },
-  "homeSubtitle": "Master Sake knowledge in your spare time!",
+  "homeSubtitle": "Master Advanced Sake Knowledge!",
   "@homeSubtitle": {
     "description": "Subtitle shown on the home screen"
   },
-  "part1Title": "Ingredients & Basics",
+  "part1Title": "Ingredients & Water",
   "@part1Title": {
     "description": "Title for Part 1"
   },
-  "part2Title": "Categories & Grades",
+  "part2Title": "Production Process",
   "@part2Title": {
     "description": "Title for Part 2"
   },
-  "part3Title": "Service & Storage",
+  "part3Title": "Labels & Styles",
   "@part3Title": {
     "description": "Title for Part 3"
+  },
+  "part4Title": "Serving & Pairing",
+  "@part4Title": {
+    "description": "Title for Part 4"
   },
   "reviewWeakness": "Review Weakness",
   "@reviewWeakness": {

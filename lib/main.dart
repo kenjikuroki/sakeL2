@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -201,14 +202,15 @@ class MyApp extends StatelessWidget {
       ],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFBC6474)),
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.lightBlue[50],
+        scaffoldBackgroundColor: const Color(0xFFF9F1F2), // Chic Pink Background
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: Color(0xFFBC6474),
           foregroundColor: Colors.white,
           elevation: 0,
         ),
+        textTheme: GoogleFonts.loraTextTheme(Theme.of(context).textTheme),
       ),
       home: const HomePage(),
     );
@@ -417,8 +419,8 @@ class _HomePageState extends State<HomePage> {
                   // Part 1
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part1Title,
-                    icon: Icons.water_drop, // Changed from waves
-                    iconColor: Colors.blueAccent,
+                    icon: Icons.water_drop, // Ingredients & Water
+                    iconColor: Colors.cyan,
                     onTap: () => _startQuizByCategory(context, 'part1'),
                   ),
                   const SizedBox(height: 16),
@@ -426,8 +428,8 @@ class _HomePageState extends State<HomePage> {
                   // Part 2
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part2Title,
-                    icon: Icons.workspace_premium, // Changed from local_bar (martini)
-                    iconColor: Colors.orange,
+                    icon: Icons.science, // Production Process
+                    iconColor: Colors.teal,
                     onTap: () {
                       if (_isPremium) {
                         _startQuizByCategory(context, 'part2');
@@ -443,8 +445,8 @@ class _HomePageState extends State<HomePage> {
                   // Part 3
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part3Title,
-                    icon: Icons.room_service, // Changed from thermostat
-                    iconColor: Colors.redAccent,
+                    icon: Icons.label, // Labels & Styles
+                    iconColor: Colors.purpleAccent,
                     onTap: () {
                       if (_isPremium) {
                          _startQuizByCategory(context, 'part3');
@@ -456,8 +458,20 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 16),
                   
-                  // Part 4 - REMOVED
-
+                  // Part 4
+                  _MenuButton(
+                    title: AppLocalizations.of(context)!.part4Title,
+                    icon: Icons.wine_bar, // Serving & Pairing
+                    iconColor: Colors.orange,
+                    onTap: () {
+                      if (_isPremium) {
+                         _startQuizByCategory(context, 'part4');
+                      } else {
+                        _showPremiumLock(context);
+                      }
+                    },
+                    isLocked: !_isPremium,
+                  ),
                   const SizedBox(height: 40),
 
                   // Weakness Review
@@ -466,7 +480,7 @@ class _HomePageState extends State<HomePage> {
                     icon: const Icon(Icons.refresh),
                     label: Text("${AppLocalizations.of(context)!.reviewWeakness} ($_weaknessCount)"),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.redAccent,
+                      backgroundColor: Colors.blueGrey, 
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       elevation: 2,
@@ -628,7 +642,7 @@ class _QuizPageState extends State<QuizPage> {
   final List<Quiz> _incorrectQuizzes = [];
   final List<Quiz> _correctQuizzesInReview = [];
   final List<Map<String, dynamic>> _answerHistory = [];
-  Color _backgroundColor = Colors.lightBlue[50]!;
+  Color _backgroundColor = const Color(0xFFF9F1F2);
 
   void _handleSwipeEnd(int previousIndex, int targetIndex, SwiperActivity activity) {
     if (activity is Swipe) {
@@ -660,7 +674,7 @@ class _QuizPageState extends State<QuizPage> {
       Future.delayed(const Duration(milliseconds: 200), () {
         if (mounted) {
           setState(() {
-            _backgroundColor = Colors.lightBlue[50]!;
+            _backgroundColor = const Color(0xFFF9F1F2);
           });
         }
       });

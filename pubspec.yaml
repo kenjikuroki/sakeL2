@@ -1,4 +1,4 @@
-name: sensui_swipe
+name: sake_exam_l2
 description: "スキマ時間でサクサク合格！一問一答"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -62,20 +62,24 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icon/sake_icon_chic.png"
+  remove_alpha_ios: true
+  image_path: "assets/icon/sake_icon_flat.png"
+  adaptive_icon_background: "#141227"
+  adaptive_icon_foreground: "assets/icon/sake_icon_adaptive_foreground_v2.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
   web:
     generate: true
-    image_path: "assets/icon/sake_icon_chic.png"
-    background_color: "#hex_code"
-    theme_color: "#hex_code"
+    image_path: "assets/icon/sake_icon_flat.png"
+    background_color: "#141227"
+    theme_color: "#141227"
   windows:
     generate: true
-    image_path: "assets/icon/sake_icon_chic.png"
+    image_path: "assets/icon/sake_icon_flat.png"
     icon_size: 48 # min:48, max:256, default: 48
   macos:
     generate: true
-    image_path: "assets/icon/sake_icon_chic.png"
+    image_path: "assets/icon/sake_icon_flat.png"
+    remove_alpha_ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

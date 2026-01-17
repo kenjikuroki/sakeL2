@@ -1,907 +1,1313 @@
+
 {
   "part1": [
     {
-      "question": "Sake is a distilled beverage like vodka or whisky.",
+      "question": "Sakamai (Sake Rice) typically has a larger grain size than table rice.",
+      "isCorrect": true,
+      "explanation": "Correct. The larger size makes it easier to polish to high degrees without breaking.",
+      "imagePath": null
+    },
+    {
+      "question": "Shinpaku is a concentration of pure starch found in the center of the rice grain.",
+      "isCorrect": true,
+      "explanation": "Correct. It is opaque white and essential for Koji mold penetration.",
+      "imagePath": null
+    },
+    {
+      "question": "Table rice usually has a larger Shinpaku than Sake rice.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake is a brewed beverage made from fermented rice, similar to how beer is made.",
+      "explanation": "Incorrect. Table rice often lacks a distinct Shinpaku or has a very small one.",
       "imagePath": null
     },
     {
-      "question": "The four main ingredients of Sake are rice, water, koji, and yeast.",
-      "isCorrect": true,
-      "explanation": "Correct. These are the essential ingredients required to make Sake.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake is typically made from the same rice we eat (table rice).",
+      "question": "Proteins and lipids are concentrated in the center of the rice grain.",
       "isCorrect": false,
-      "explanation": "Incorrect. Premium Sake is usually made from special 'Sake Rice' (Sakamai), which is larger and has a starchy core.",
+      "explanation": "Incorrect. They are concentrated in the outer layers, which is why polishing is necessary.",
       "imagePath": null
     },
     {
-      "question": "The process of polishing rice removes the outer layers to reach the starchy core.",
+      "question": "Yamadanishiki is the most famous variety of Sake rice.",
       "isCorrect": true,
-      "explanation": "Correct. Polishing removes fats, proteins, and minerals found in the outer layers to create a cleaner taste.",
+      "explanation": "Correct. It is often called the 'King of Sake Rice' and is widely used for Daiginjo.",
       "imagePath": null
     },
     {
-      "question": "Koji is a type of mold used to convert starch into sugar.",
-      "isCorrect": true,
-      "explanation": "Correct. The mold 'Aspergillus oryzae' creates enzymes that break down rice starch into glucose.",
-      "imagePath": null
-    },
-    {
-      "question": "Yeast is responsible for converting starch into sugar.",
+      "question": "Yamadanishiki is primarily grown in Niigata Prefecture.",
       "isCorrect": false,
-      "explanation": "Incorrect. Koji converts starch to sugar. Yeast converts sugar to alcohol.",
+      "explanation": "Incorrect. Its main production area is Hyogo Prefecture.",
       "imagePath": null
     },
     {
-      "question": "Yeast is responsible for alcoholic fermentation.",
+      "question": "Gohyakumangoku is a rice variety known for producing light, clean Sake.",
       "isCorrect": true,
-      "explanation": "Correct. Yeast consumes sugar and produces alcohol and carbon dioxide.",
+      "explanation": "Correct. It is the signature rice of Niigata and the Hokuriku region.",
       "imagePath": null
     },
     {
-      "question": "Water makes up about 80% of the final Sake product.",
+      "question": "Miyamanishiki is a cold-resistant rice variety grown in Nagano and Tohoku.",
       "isCorrect": true,
-      "explanation": "Correct. High-quality water is crucial as it constitutes the majority of the liquid.",
+      "explanation": "Correct. It produces Sake with a rich but clean texture.",
       "imagePath": null
     },
     {
-      "question": "Iron is a desirable mineral in Sake brewing water.",
+      "question": "Omachi is an heirloom rice variety known for its herbal and earthy complexity.",
+      "isCorrect": true,
+      "explanation": "Correct. It is one of the oldest pure strains, primarily from Okayama.",
+      "imagePath": null
+    },
+    {
+      "question": "Omachi rice is easy to polish and rarely cracks.",
       "isCorrect": false,
-      "explanation": "Incorrect. Iron is harmful to Sake quality and can spoil the color and flavor.",
+      "explanation": "Incorrect. Omachi is soft and cracks easily during polishing, making it difficult to handle.",
       "imagePath": null
     },
     {
-      "question": "Sake production involves 'Parallel Multiple Fermentation'.",
+      "question": "Hard water (Kousui) contains high levels of minerals like calcium and magnesium.",
       "isCorrect": true,
-      "explanation": "Correct. Starch-to-sugar and sugar-to-alcohol conversion happen simultaneously in the same tank.",
+      "explanation": "Correct. This promotes vigorous yeast fermentation.",
       "imagePath": null
     },
     {
-      "question": "Sugar must be added to the mash because rice has no natural sugar.",
+      "question": "Soft water (Nansui) typically results in a slow fermentation.",
+      "isCorrect": true,
+      "explanation": "Correct. It produces soft, feminine Sake (e.g., Fushimi style).",
+      "imagePath": null
+    },
+    {
+      "question": "Nada (Hyogo) is famous for its soft water.",
       "isCorrect": false,
-      "explanation": "Incorrect. Rice starch is converted into sugar by Koji, so adding sugar is not necessary.",
+      "explanation": "Incorrect. Nada is famous for 'Miyamizu', which is hard water.",
       "imagePath": null
     },
     {
-      "question": "The starchy center of the Sake rice grain is called 'Shinpaku'.",
+      "question": "Iron is removed from brewing water because it gives Sake a reddish color and bad taste.",
       "isCorrect": true,
-      "explanation": "Correct. 'Shinpaku' (white heart) is essential for high-quality Koji making.",
+      "explanation": "Correct. Even trace amounts of iron are detrimental.",
       "imagePath": null
     },
     {
-      "question": "A typical alcohol content (ABV) for Sake is around 15% to 17%.",
+      "question": "Potassium and Magnesium are essential nutrients for Koji and Yeast.",
       "isCorrect": true,
-      "explanation": "Correct. This is the standard range for most Sake.",
+      "explanation": "Correct. They help the microbes grow healthy.",
       "imagePath": null
     },
     {
-      "question": "Sake generally has higher acidity than wine.",
+      "question": "Rice needs to be rested after polishing to cool down and regain moisture balance.",
+      "isCorrect": true,
+      "explanation": "Correct. This period is called 'Karashi'.",
+      "imagePath": null
+    },
+    {
+      "question": "The more rice is polished, the slower it absorbs water.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake has much lower acidity (about 1/5) compared to wine.",
+      "explanation": "Incorrect. Highly polished rice absorbs water extremely fast.",
       "imagePath": null
     },
     {
-      "question": "Distilled alcohol is sometimes added to Sake to increase yield and enhance aroma.",
+      "question": "For Daiginjo rice, soaking is often timed with a stopwatch.",
       "isCorrect": true,
-      "explanation": "Correct. This is done in styles like Honjozo and Daiginjo.",
+      "explanation": "Correct. Precision to the second is required (Limited Water Absorption).",
       "imagePath": null
     },
     {
-      "question": "Adding distilled alcohol always means the Sake is low quality.",
+      "question": "Steaming rice adds moisture while making the outside hard and inside soft.",
+      "isCorrect": true,
+      "explanation": "Correct. This 'Gai-ko-nai-nan' texture is perfect for Koji.",
+      "imagePath": null
+    },
+    {
+      "question": "Soaking (Shinseki) is done after Steaming.",
       "isCorrect": false,
-      "explanation": "Incorrect. It is a traditional technique used even in premium Daiginjo to create a lighter, fragrant style.",
+      "explanation": "Incorrect. Soaking is done after Washing and before Steaming.",
       "imagePath": null
     },
     {
-      "question": "The 'Polishing Ratio' (Seimai-buai) of 60% means 60% of the rice was removed.",
+      "question": "Rice for Sake making is usually harvested in the Spring.",
       "isCorrect": false,
-      "explanation": "Incorrect. It means 60% of the grain REMAINS. 40% was polished away.",
+      "explanation": "Incorrect. Like table rice, it is harvested in the Autumn.",
       "imagePath": null
     },
     {
-      "question": "Yeast has no impact on the aroma of Sake.",
+      "question": "Koji-kin used for Sake is typically Black Koji.",
       "isCorrect": false,
-      "explanation": "Incorrect. Yeast is the primary source of fruity and floral aromas (Ginjo-ka).",
+      "explanation": "Incorrect. Yellow Koji (Aspergillus oryzae) is standard for Sake. Black/White is for Shochu.",
       "imagePath": null
     },
     {
-      "question": "Sake can technically be made from brown rice (unpolished rice).",
-      "isCorrect": true,
-      "explanation": "Correct. Although rare and difficult to produce, 'Genmai-zake' (brown rice sake) does exist. However, most premium Sake uses polished rice.",
-      "imagePath": null
-    },
-    {
-      "question": "Soft water typically produces soft, smooth Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. Soft water results in slower fermentation and a gentler texture.",
-      "imagePath": null
-    },
-    {
-      "question": "Hard water typically produces dry, crisp Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. Minerals in hard water promote vigorous fermentation.",
-      "imagePath": null
-    },
-    {
-      "question": "Koji rice looks like rice covered in white frosting.",
-      "isCorrect": true,
-      "explanation": "Correct. The mold spores grow on the grains, giving a white appearance.",
-      "imagePath": null
-    },
-    {
-      "question": "Lactic acid is used in the starter mash (Moto) to protect the yeast.",
-      "isCorrect": true,
-      "explanation": "Correct. Acid prevents unwanted bacteria from killing the yeast.",
-      "imagePath": null
-    },
-    {
-      "question": "Filtration (pressing) involves separating the liquid Sake from the solid rice lees.",
-      "isCorrect": true,
-      "explanation": "Correct. This step is called 'Joso'.",
-      "imagePath": null
-    },
-    {
-      "question": "The solid remains left after pressing Sake are called 'Sake Kasu'.",
-      "isCorrect": true,
-      "explanation": "Correct. These lees are used in cooking (Kasuzuke) and cosmetics.",
-      "imagePath": null
-    },
-    {
-      "question": "The enzyme produced by Koji is called amylase.",
-      "isCorrect": true,
-      "explanation": "Correct. Amylase breaks down starch into sugar.",
-      "imagePath": null
-    },
-    {
-      "question": "Steaming the rice sterilizes it and alters the starch structure.",
-      "isCorrect": true,
-      "explanation": "Correct. This makes it suitable for Koji mold to grow.",
-      "imagePath": null
-    },
-    {
-      "question": "The main fermentation mash is called 'Moromi'.",
-      "isCorrect": true,
-      "explanation": "Correct. Moromi is the mixture of rice, water, koji, and yeast.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake is usually aged in oak barrels.",
+      "question": "Yellow Koji produces Citric Acid.",
       "isCorrect": false,
-      "explanation": "Incorrect. Most Sake is aged in inert vessels like stainless steel tanks.",
+      "explanation": "Incorrect. Yellow Koji does not produce much acid. White/Black Koji produce Citric Acid.",
       "imagePath": null
     },
     {
-      "question": "Sake is traditionally brewed in the cold winter months.",
+      "question": "Aibugamo method refers to using ducks in rice paddies for organic farming.",
       "isCorrect": true,
-      "explanation": "Correct. Cold temperatures help control fermentation.",
+      "explanation": "Correct. The ducks eat weeds and insects, reducing the need for pesticides.",
       "imagePath": null
     },
     {
-      "question": "Rice absorbs water very quickly during washing.",
+      "question": "Sake rice grows taller than table rice.",
       "isCorrect": true,
-      "explanation": "Correct. The time is measured in seconds for high-quality rice.",
+      "explanation": "Correct. This makes it more susceptible to wind damage (lodging).",
       "imagePath": null
     },
     {
-      "question": "Sake contains tannins like red wine.",
+      "question": "The 'Seimai-buai' (polishing ratio) is determined by weight.",
+      "isCorrect": true,
+      "explanation": "Correct. It compares the weight of the polished rice to the original brown rice.",
+      "imagePath": null
+    },
+    {
+      "question": "Flat Rice Polishing (Henpei Seimai) is a technique to keep the rice shape round.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake has virtually no tannins.",
+      "explanation": "Incorrect. It polishes the rice to match the shape of the core (flat), removing more unwanted proteins efficiently.",
       "imagePath": null
     },
     {
-      "question": "A starter mash (Moto) is necessary to build up a high concentration of yeast.",
-      "isCorrect": true,
-      "explanation": "Correct. Without a strong starter, wild bacteria might spoil the batch.",
-      "imagePath": null
-    },
-    {
-      "question": "Pasteurization is done to kill bacteria and stop enzyme activity.",
-      "isCorrect": true,
-      "explanation": "Correct. It stabilizes the Sake for storage.",
-      "imagePath": null
-    },
-    {
-      "question": "Most Sake is pasteurized twice.",
-      "isCorrect": true,
-      "explanation": "Correct. Once after pressing and once before bottling.",
-      "imagePath": null
-    },
-    {
-      "question": "Nigori Sake is Sake that has been filtered to be crystal clear.",
+      "question": "Washing rice (Senmai) is only to remove dirt.",
       "isCorrect": false,
-      "explanation": "Incorrect. Nigori is cloudy Sake that retains some rice solids.",
+      "explanation": "Incorrect. It also washes away the 'Nuka' (rice powder) left after polishing.",
       "imagePath": null
     },
     {
-      "question": "Sake is technically a 'Rice Wine'.",
-      "isCorrect": false,
-      "explanation": "Incorrect. While often called that, its production is more similar to beer.",
-      "imagePath": null
-    },
-    {
-      "question": "The more rice is polished, the more expensive it becomes.",
+      "question": "Koshitanrei is a crossbreed of Yamadanishiki and Gohyakumangoku.",
       "isCorrect": true,
-      "explanation": "Correct. Because more raw material is wasted and more time is required.",
+      "explanation": "Correct. Developed in Niigata to have the quality of Yamada and the local suitability of Gohyakumangoku.",
       "imagePath": null
     },
     {
-      "question": "The outer layer of rice contains pure starch.",
+      "question": "Soft water is called 'Miyamizu'.",
       "isCorrect": false,
-      "explanation": "Incorrect. The outer layer contains fats, proteins, and minerals.",
+      "explanation": "Incorrect. Miyamizu is the famous HARD water of Nada.",
       "imagePath": null
     },
     {
-      "question": "Koji can only be made in a cold room.",
+      "question": "Fushimi (Kyoto) is famous for its soft water.",
+      "isCorrect": true,
+      "explanation": "Correct. The water is called 'Gokosui'.",
+      "imagePath": null
+    },
+    {
+      "question": "Chlorine is added to brewing water for sterilization.",
       "isCorrect": false,
-      "explanation": "Incorrect. Koji is made in a warm, humid room called 'Koji Muro'.",
+      "explanation": "Incorrect. Chlorine must be removed as it spoils the Sake flavor.",
       "imagePath": null
     },
     {
-      "question": "To make Sake, you boil the rice like you do for eating.",
+      "question": "Rice cultivation for Sake requires large temperature differences between day and night.",
+      "isCorrect": true,
+      "explanation": "Correct. This helps the grain accumulate starch efficiently.",
+      "imagePath": null
+    },
+    {
+      "question": "Late-ripening rice varieties (Okute) like Yamadanishiki are harvested in early summer.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake rice is always STEAMED, not boiled.",
+      "explanation": "Incorrect. They are harvested late, often in October.",
       "imagePath": null
     },
     {
-      "question": "Sake yeast is a fungus.",
-      "isCorrect": true,
-      "explanation": "Correct. Yeast is a single-celled fungus.",
-      "imagePath": null
-    },
-    {
-      "question": "Koji is a bacteria.",
+      "question": "High protein content in rice leads to a cleaner, lighter taste.",
       "isCorrect": false,
-      "explanation": "Incorrect. Koji is a mold (fungus), not a bacteria.",
+      "explanation": "Incorrect. High protein usually leads to a savory, heavier, or rougher taste (Zatsumi).",
       "imagePath": null
     },
     {
-      "question": "The water used for Sake must be free of iron.",
-      "isCorrect": true,
-      "explanation": "Correct. Iron is the enemy of Sake.",
-      "imagePath": null
-    },
-    {
-      "question": "All Sake is diluted with water.",
+      "question": "Yeast is a type of mold.",
       "isCorrect": false,
-      "explanation": "Incorrect. 'Genshu' is undiluted Sake.",
+      "explanation": "Incorrect. Yeast is a fungus, but distinct from mold (Koji).",
       "imagePath": null
     },
     {
-      "question": "Futsushu (Ordinary Sake) accounts for the majority of the market.",
-      "isCorrect": true,
-      "explanation": "Correct. Premium Sake (Tokutei Meisho-shu) is about 30-35% of the market.",
-      "imagePath": null
-    },
-    {
-      "question": "Proteins in rice add savory (Umami) flavor.",
-      "isCorrect": true,
-      "explanation": "Correct. However, too much protein makes the Sake taste rough.",
-      "imagePath": null
-    },
-    {
-      "question": "Alcohol fermentation produces heat.",
-      "isCorrect": true,
-      "explanation": "Correct. The temperature of the mash rises as yeast works.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake brewing takes about 24 hours.",
+      "question": "Kyokai No. 7 is a classic yeast known for banana and melon aromas.",
       "isCorrect": false,
-      "explanation": "Incorrect. It takes roughly a month for the main fermentation.",
+      "explanation": "Incorrect. No. 7 is a traditional yeast with a subtle, reliable character. No. 9 or 18 are famous for Ginjo aromas.",
       "imagePath": null
     },
     {
-      "question": "The Japanese term for Sake brewery is 'Kura'.",
+      "question": "Foaming yeast creates a high layer of foam in the fermentation tank.",
       "isCorrect": true,
-      "explanation": "Correct. Also referred to as Sakagura.",
+      "explanation": "Correct. Traditional yeasts are foam-forming.",
+      "imagePath": null
+    },
+    {
+      "question": "Non-foaming yeast mutants allow breweries to fill tanks higher.",
+      "isCorrect": true,
+      "explanation": "Correct. Because there is no foam cap to overflow.",
+      "imagePath": null
+    },
+    {
+      "question": "Lactic acid bacteria are never used in Sake brewing.",
+      "isCorrect": false,
+      "explanation": "Incorrect. They are essential in Kimoto and Yamahai styles to create acidity.",
+      "imagePath": null
+    },
+    {
+      "question": "Nitrates in water are necessary for the growth of Koji.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Nitrates can be converted to nitrites by bacteria, which harms yeast.",
+      "imagePath": null
+    },
+    {
+      "question": "Dewasansan is a rice variety from Yamagata Prefecture.",
+      "isCorrect": true,
+      "explanation": "Correct. It is a key rice for the 'GI Yamagata' designation.",
+      "imagePath": null
+    },
+    {
+      "question": "Hattan Nishiki is a rice variety from Hiroshima.",
+      "isCorrect": true,
+      "explanation": "Correct. Hiroshima is known for soft water brewing.",
+      "imagePath": null
+    },
+    {
+      "question": "The ideal Shinpaku is shaped like an eye (disk-like).",
+      "isCorrect": true,
+      "explanation": "Correct. This shape is less likely to break during polishing.",
+      "imagePath": null
+    },
+    {
+      "question": "Rice absorbs about 30% of its weight in water during soaking.",
+      "isCorrect": true,
+      "explanation": "Correct. This is the target for steaming.",
+      "imagePath": null
+    },
+    {
+      "question": "Batch washing (washing large amounts at once) is best for Daiginjo rice.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Daiginjo rice is often washed in small batches (e.g., 10kg) for precision.",
+      "imagePath": null
+    },
+    {
+      "question": "Steam used for rice must be 'wet steam'.",
+      "isCorrect": false,
+      "explanation": "Incorrect. 'Dry steam' (high temp, low moisture) is preferred to avoid soggy rice.",
+      "imagePath": null
+    },
+    {
+      "question": "Koji mold can only grow on the surface of the rice.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Good Koji grows INTO the rice center (Tsuki-haze).",
+      "imagePath": null
+    },
+    {
+      "question": "Yeast converts Glucose into Ethanol and CO2.",
+      "isCorrect": true,
+      "explanation": "Correct. This is the fundamental equation of alcoholic fermentation.",
+      "imagePath": null
+    },
+    {
+      "question": "Koji enzymes include Protease, which breaks down proteins into amino acids.",
+      "isCorrect": true,
+      "explanation": "Correct. Amino acids provide Umami.",
       "imagePath": null
     }
   ],
   "part2": [
     {
-      "question": "'Junmai' means pure rice sake with no added alcohol.",
+      "question": "The Yeast Starter is called 'Shubo' or 'Moto'.",
       "isCorrect": true,
-      "explanation": "Correct. If the label says Junmai, only rice, water, koji, and yeast were used.",
+      "explanation": "Correct. Its main purpose is to cultivate a large population of pure yeast.",
       "imagePath": null
     },
     {
-      "question": "'Honjozo' is a style of Sake with a small amount of added distilled alcohol.",
+      "question": "Sokujo-moto involves adding commercially produced lactic acid.",
       "isCorrect": true,
-      "explanation": "Correct. It must also have a polishing ratio of 70% or less.",
+      "explanation": "Correct. This makes the process faster (approx 2 weeks) and safer.",
       "imagePath": null
     },
     {
-      "question": "'Ginjo' Sake must have a polishing ratio of 60% or less (40% removed).",
+      "question": "Kimoto and Yamahai styles cultivate natural lactic acid bacteria from the air/brewery.",
       "isCorrect": true,
-      "explanation": "Correct. This is the legal definition of Ginjo.",
+      "explanation": "Correct. This takes longer (approx 4 weeks).",
       "imagePath": null
     },
     {
-      "question": "'Daiginjo' Sake must have a polishing ratio of 50% or less.",
+      "question": "Yama-oroshi is the process of ramming/mashing rice with poles in Kimoto brewing.",
       "isCorrect": true,
-      "explanation": "Correct. Half or more of the grain is polished away.",
+      "explanation": "Correct. It aids saccharification.",
       "imagePath": null
     },
     {
-      "question": "A Sake labeled only as 'Ginjo' (without Junmai) likely contains added alcohol.",
+      "question": "Yamahai stands for 'Yama-oroshi Haishi' (abolishing Yama-oroshi).",
       "isCorrect": true,
-      "explanation": "Correct. If it doesn't say Junmai, it typically means it is 'Aruten' (alcohol added).",
+      "explanation": "Correct. Enzymes dissolve the rice without the need for manual mashing.",
       "imagePath": null
     },
     {
-      "question": "Junmai Daiginjo contains added distilled alcohol.",
+      "question": "Sokujo-moto typically produces Sake with higher acidity and gamey flavors.",
       "isCorrect": false,
-      "explanation": "Incorrect. The word 'Junmai' guarantees no added alcohol.",
+      "explanation": "Incorrect. Sokujo tends to produce clean, pure types. Kimoto/Yamahai are richer/gamier.",
       "imagePath": null
     },
     {
-      "question": "Futsushu means 'Premium Sake'.",
+      "question": "Sandan-jikomi means 'Three-Step Brewing'.",
+      "isCorrect": true,
+      "explanation": "Correct. The main mash involves adding ingredients in 3 stages.",
+      "imagePath": null
+    },
+    {
+      "question": "The three stages of Sandan-jikomi are Hatsuzoe, Nakazoe, and Tomezoe.",
+      "isCorrect": true,
+      "explanation": "Correct. The batch size roughly doubles at each step.",
+      "imagePath": null
+    },
+    {
+      "question": "Ingredients are added all at once to the main mash.",
       "isCorrect": false,
-      "explanation": "Incorrect. Futsushu is 'Ordinary/Table Sake' and makes up the majority of the market.",
+      "explanation": "Incorrect. Adding all at once would dilute the acid and yeast too much, inviting spoilage.",
       "imagePath": null
     },
     {
-      "question": "Premium Sake is collectively called 'Tokutei Meisho-shu'.",
+      "question": "Odori is a rest day between Hatsuzoe and Nakazoe.",
       "isCorrect": true,
-      "explanation": "Correct. This covers the grades like Junmai, Ginjo, Honjozo, etc.",
+      "explanation": "Correct. It allows the yeast to propagate before more food is added.",
       "imagePath": null
     },
     {
-      "question": "Ginjo styles are typically known for their fruity and floral aromas.",
+      "question": "Ginjo fermentation takes place at low temperatures (around 10°C).",
       "isCorrect": true,
-      "explanation": "Correct. This aroma is called 'Ginjo-ka'.",
+      "explanation": "Correct. Low temperature stress causes yeast to produce fruity esters.",
       "imagePath": null
     },
     {
-      "question": "Honjozo is typically light, crisp, and easy to drink.",
-      "isCorrect": true,
-      "explanation": "Correct. The added alcohol lightens the body.",
-      "imagePath": null
-    },
-    {
-      "question": "Junmai styles usually have a richer body and more Umami than Honjozo.",
-      "isCorrect": true,
-      "explanation": "Correct. Without added alcohol, the rice flavor is more prominent.",
-      "imagePath": null
-    },
-    {
-      "question": "To be classified as Honjozo, the polishing ratio must be 70% or less.",
-      "isCorrect": true,
-      "explanation": "Correct. If it is less polished (e.g., 80%), it cannot be Honjozo.",
-      "imagePath": null
-    },
-    {
-      "question": "There is no polishing ratio requirement for 'Junmai' (standard grade).",
-      "isCorrect": true,
-      "explanation": "Correct. Historically it was 70%, but the rule was removed. However, the ratio must be listed.",
-      "imagePath": null
-    },
-    {
-      "question": "'Nigori' means Sparkling Sake.",
+      "question": "Fermentation for standard Sake usually lasts 60 days.",
       "isCorrect": false,
-      "explanation": "Incorrect. Nigori means 'Cloudy' Sake.",
+      "explanation": "Incorrect. Standard is 20-25 days. Ginjo can take 30-40 days.",
       "imagePath": null
     },
     {
-      "question": "Sparkling Sake traps carbon dioxide from fermentation or gas injection.",
+      "question": "Aruten refers to the addition of brewer's alcohol to the mash.",
       "isCorrect": true,
-      "explanation": "Correct. It is bubbly like Champagne.",
+      "explanation": "Correct. It is done just before pressing.",
       "imagePath": null
     },
     {
-      "question": "'Koshu' refers to aged Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. Koshu is often amber in color and has nutty aromas.",
-      "imagePath": null
-    },
-    {
-      "question": "'Genshu' means undiluted Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. It usually has a higher alcohol content (18-20%).",
-      "imagePath": null
-    },
-    {
-      "question": "'Namazake' refers to unpasteurized Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. It must be kept refrigerated.",
-      "imagePath": null
-    },
-    {
-      "question": "'Tokubetsu' (Special) Junmai generally implies a polishing ratio of 60% or less.",
-      "isCorrect": true,
-      "explanation": "Correct. The label must state the reason for being 'special', such as high polishing rate or unique brewing method.",
-      "imagePath": null
-    },
-    {
-      "question": "Daiginjo is always better than Junmai.",
+      "question": "Alcohol is added to the mash primarily to increase the ABV.",
       "isCorrect": false,
-      "explanation": "Incorrect. It is a matter of style and preference, not absolute quality.",
+      "explanation": "Incorrect. It is mainly for extracting aroma and lightening flavor.",
       "imagePath": null
     },
     {
-      "question": "Futsushu has strict rules on how much alcohol and sugar can be added.",
+      "question": "Joso is the process of pressing the mash.",
+      "isCorrect": true,
+      "explanation": "Correct. It separates the liquid Sake from the solid Kasu.",
+      "imagePath": null
+    },
+    {
+      "question": "Arabashiri is the last run of the press, usually bitter.",
       "isCorrect": false,
-      "explanation": "Incorrect. Futsushu allows more additives than premium Sake.",
+      "explanation": "Incorrect. Arabashiri is the 'First Run' that flows out by gravity (fresh, wild).",
       "imagePath": null
     },
     {
-      "question": "If a label says 'Seimai-buai 45%', it qualifies as Daiginjo.",
+      "question": "Nakadori (or Nakagumi) is considered the best balanced portion of the press.",
       "isCorrect": true,
-      "explanation": "Correct. Anything 50% or lower qualifies as Daiginjo.",
+      "explanation": "Correct. It is the middle run, often used for competition Sake.",
       "imagePath": null
     },
     {
-      "question": "If a label says 'Seimai-buai 65%', it qualifies as Ginjo.",
+      "question": "Seme is the final run applied with high pressure.",
+      "isCorrect": true,
+      "explanation": "Correct. It often has more astringency and off-flavors.",
+      "imagePath": null
+    },
+    {
+      "question": "Fukuro-zuri is a pressing method using a hydraulic machine.",
       "isCorrect": false,
-      "explanation": "Incorrect. Ginjo requires 60% or less.",
+      "explanation": "Incorrect. Fukuro-zuri is 'Drip Pressing' using cloth bags and gravity only.",
       "imagePath": null
     },
     {
-      "question": "Typical flavors of Ginjo include banana, apple, and melon.",
+      "question": "Yabuta is a common brand of accordion-style pressing machine.",
       "isCorrect": true,
-      "explanation": "Correct. These are classic Ginjo esters.",
+      "explanation": "Correct. It is the most common method for efficiency.",
       "imagePath": null
     },
     {
-      "question": "Junmai Sake generally pairs well with rich food.",
-      "isCorrect": true,
-      "explanation": "Correct. Its acidity and Umami cut through oils.",
-      "imagePath": null
-    },
-    {
-      "question": "Honjozo is generally considered a 'fragrant' Sake.",
+      "question": "Carbon filtration (Sumiroka) is used to add color to Sake.",
       "isCorrect": false,
-      "explanation": "Incorrect. Honjozo is usually 'crisp and light', while Ginjo is 'fragrant'.",
+      "explanation": "Incorrect. It REMOVES color and unwanted off-flavors.",
       "imagePath": null
     },
     {
-      "question": "The term 'Sake' in Japan just means 'Alcohol'.",
+      "question": "Pasteurization (Hi-ire) typically happens at 60-65°C.",
       "isCorrect": true,
-      "explanation": "Correct. The specific word for Japanese rice wine is 'Nihonshu'.",
+      "explanation": "Correct. This is sufficient to kill enzymes and Hiochi bacteria.",
       "imagePath": null
     },
     {
-      "question": "Sparkling Sake is often labeled as 'Sparkling Nihonshu'.",
+      "question": "Nama-zume is pasteurized once before storage, and not pasteurized at bottling.",
       "isCorrect": true,
-      "explanation": "Correct. It prevents confusion with 'Happo-shu' (low-malt beer).",
+      "explanation": "Correct. 'Zume' means bottling, so it is 'Raw at Bottling'.",
       "imagePath": null
     },
     {
-      "question": "A Sake with Seimai-buai 55% can be called Ginjo.",
+      "question": "Nama-chozo is stored unpasteurized and pasteurized once at bottling.",
       "isCorrect": true,
-      "explanation": "Correct. It meets the '60% or less' requirement.",
+      "explanation": "Correct. 'Chozo' means storage, so it is 'Raw during Storage'.",
       "imagePath": null
     },
     {
-      "question": "A Sake with Seimai-buai 55% can be called Daiginjo.",
+      "question": "Hiochi bacteria are lactic acid bacteria that spoil Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. They thrive in alcohol and make Sake cloudy and smelly.",
+      "imagePath": null
+    },
+    {
+      "question": "Genshu is usually diluted with water to lower alcohol to 15-16%.",
       "isCorrect": false,
-      "explanation": "Incorrect. Daiginjo must be 50% or less.",
+      "explanation": "Incorrect. Genshu is UNDILUTED.",
       "imagePath": null
     },
     {
-      "question": "Taruzake is Sake aged in cedar barrels.",
+      "question": "Most Sake is aged for 3-5 years before release.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Standard maturation is about 6 months.",
+      "imagePath": null
+    },
+    {
+      "question": "Koji Muro is a room kept cold and dry.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is kept hot (30-40°C) and humid for mold growth.",
+      "imagePath": null
+    },
+    {
+      "question": "Sou-haze (Total coverage) Koji is preferred for Ginjo Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Tsuki-haze (spotted penetration) is preferred for Ginjo. Sou-haze is for rich Junmai.",
+      "imagePath": null
+    },
+    {
+      "question": "Tsuki-haze Koji has mold growing deep into the center of the rice.",
       "isCorrect": true,
-      "explanation": "Correct. It has a distinctive woody aroma.",
+      "explanation": "Correct. This provides a slow, steady supply of glucose.",
       "imagePath": null
     },
     {
-      "question": "Nigori Sake should be shaken gently before drinking.",
-      "isCorrect": true,
-      "explanation": "Correct. To mix the sediment that has settled at the bottom.",
-      "imagePath": null
-    },
-    {
-      "question": "Namazake is shelf-stable at room temperature.",
-      "isCorrect": false,
-      "explanation": "Incorrect. Live enzymes and bacteria can spoil it if not refrigerated.",
-      "imagePath": null
-    },
-    {
-      "question": "Kijoshu is a sweet style of Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. It is made by adding Sake instead of water during brewing.",
-      "imagePath": null
-    },
-    {
-      "question": "A Sake polished to 35% is considered low grade.",
-      "isCorrect": false,
-      "explanation": "Incorrect. That is a very high polishing rate, typical of ultra-premium Daiginjo.",
-      "imagePath": null
-    },
-    {
-      "question": "Junmai Ginjo is made with water, rice, koji, and added alcohol.",
-      "isCorrect": false,
-      "explanation": "Incorrect. 'Junmai' means NO added alcohol.",
-      "imagePath": null
-    },
-    {
-      "question": "Ginjo is fermented at lower temperatures than Junmai/Honjozo.",
-      "isCorrect": true,
-      "explanation": "Correct. This 'Ginjo technique' preserves fruity aromas.",
-      "imagePath": null
-    },
-    {
-      "question": "Rice polishing ratio is the only factor determining Sake grade.",
-      "isCorrect": false,
-      "explanation": "Incorrect. Ingredients (quality of rice) and brewing methods also matter.",
-      "imagePath": null
-    },
-    {
-      "question": "'Tokutei Meisho-shu' accounts for about 70% of total Sake production.",
-      "isCorrect": false,
-      "explanation": "Incorrect. It's about 30-35%. The rest is Futsushu (ordinary sake).",
-      "imagePath": null
-    },
-    {
-      "question": "Adding alcohol stops fermentation.",
-      "isCorrect": false,
-      "explanation": "Incorrect. In Sake, it is added to adjust flavor, not primarily to fortify/stop fermentation like Port wine.",
-      "imagePath": null
-    },
-    {
-      "question": "Umeshu is a type of Sake.",
-      "isCorrect": false,
-      "explanation": "Incorrect. It is plum liqueur, often made by steeping plums in liquor, not fermented rice.",
-      "imagePath": null
-    },
-    {
-      "question": "Sweetness in Sake is measured by the Sake Meter Value (SMV).",
-      "isCorrect": true,
-      "explanation": "Correct. Negative values are sweet, positive values are dry.",
-      "imagePath": null
-    },
-    {
-      "question": "A high negative SMV (e.g., -5) indicates a Dry Sake.",
-      "isCorrect": false,
-      "explanation": "Incorrect. Negative means Sweet. Positive means Dry.",
-      "imagePath": null
-    },
-    {
-      "question": "Ginjo aroma comes from the rice bran.",
-      "isCorrect": false,
-      "explanation": "Incorrect. It is produced by yeast during low-temperature fermentation.",
-      "imagePath": null
-    },
-    {
-      "question": "Kimoto and Yamahai are styles known for higher acidity and gamey flavors.",
-      "isCorrect": true,
-      "explanation": "Correct. They use traditional yeast starter methods.",
-      "imagePath": null
-    },
-    {
-      "question": "Honjozo is considered a 'Pure Rice' sake.",
-      "isCorrect": false,
-      "explanation": "Incorrect. Only 'Junmai' is Pure Rice.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake labeling laws are very strict in Japan.",
-      "isCorrect": true,
-      "explanation": "Correct. Terms like Junmai and Ginjo are legally defined.",
-      "imagePath": null
-    },
-    {
-      "question": "Daiginjo uses more rice to make the same amount of Sake than Honjozo.",
-      "isCorrect": true,
-      "explanation": "Correct. Because so much of the rice grain is polished away.",
-      "imagePath": null
-    },
-    {
-      "question": "Nigori Sake is always sweet.",
-      "isCorrect": false,
-      "explanation": "Incorrect. While often sweet, dry Nigori exists.",
-      "imagePath": null
-    },
-    {
-      "question": "O-Choko is a vessel used for making Sake.",
-      "isCorrect": false,
-      "explanation": "Incorrect. It is a small cup for *drinking* Sake.",
-      "imagePath": null
-    }
-  ],
-  "part3": [
-    {
-      "question": "Sake should generally be consumed within a year of bottling.",
-      "isCorrect": true,
-      "explanation": "Correct. Sake is meant to be drunk young, unlike fine wine.",
-      "imagePath": null
-    },
-    {
-      "question": "Once opened, Sake lasts for months without spoiling.",
-      "isCorrect": false,
-      "explanation": "Incorrect. It oxidizes like wine. It should be finished within 1-2 weeks.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake should be stored in direct sunlight to age it.",
-      "isCorrect": false,
-      "explanation": "Incorrect. UV light degrades Sake rapidly, causing 'light strike' (skunky smell).",
-      "imagePath": null
-    },
-    {
-      "question": "The best place to store Sake is a cool, dark place.",
-      "isCorrect": true,
-      "explanation": "Correct. Ideally in a refrigerator.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake can be served chilled, at room temperature, or warm.",
-      "isCorrect": true,
-      "explanation": "Correct. This versatility is unique to Sake.",
-      "imagePath": null
-    },
-    {
-      "question": "Ginjo and Daiginjo are best served steaming hot.",
-      "isCorrect": false,
-      "explanation": "Incorrect. High heat destroys their delicate floral aromas. Chilled is best.",
-      "imagePath": null
-    },
-    {
-      "question": "Honjozo and Junmai are good candidates for warming.",
-      "isCorrect": true,
-      "explanation": "Correct. Heating can open up their savory (Umami) flavors.",
-      "imagePath": null
-    },
-    {
-      "question": "The Japanese term for warm sake is 'O-kan'.",
-      "isCorrect": true,
-      "explanation": "Correct. 'Nurukan' is warm, 'Atsukan' is hot.",
-      "imagePath": null
-    },
-    {
-      "question": "The small ceramic flask used to serve Sake is called a 'Tokkuri'.",
-      "isCorrect": true,
-      "explanation": "Correct. It is often used to heat the sake.",
-      "imagePath": null
-    },
-    {
-      "question": "The small ceramic cup used to drink Sake is called an 'O-choko'.",
+      "question": "Shubo takes about 2 weeks for Sokujo method.",
       "isCorrect": true,
       "explanation": "Correct.",
       "imagePath": null
     },
     {
-      "question": "A 'Masu' is a square wooden box traditionally used for drinking Sake.",
+      "question": "Alcohol fermentation produces heat, so tanks must be cooled.",
       "isCorrect": true,
-      "explanation": "Correct. It smells of cedar wood.",
+      "explanation": "Correct. Cooling jackets are often used.",
       "imagePath": null
     },
     {
-      "question": "Sake goes well with seafood because it is generally low in iron.",
+      "question": "Kasubuai is the percentage of rice that becomes lees (waste).",
       "isCorrect": true,
-      "explanation": "Correct. High iron reacts with fish oils to create a fishy taste. Sake has very little iron.",
+      "explanation": "Correct. High Kasubuai means less liquid Sake (luxury). Daiginjo has high Kasubuai.",
       "imagePath": null
     },
     {
-      "question": "Sake has high acidity which helps cut through fatty foods.",
+      "question": "Ori-biki is the process of removing sediment after pressing.",
+      "isCorrect": true,
+      "explanation": "Correct. The Sake is left to settle, and the clear part is racked off.",
+      "imagePath": null
+    },
+    {
+      "question": "Flash Pasteurization uses heat exchangers to heat Sake quickly.",
+      "isCorrect": true,
+      "explanation": "Correct. It is faster than 'Bottle Pasteurization'.",
+      "imagePath": null
+    },
+    {
+      "question": "Bottle Pasteurization (Bin-kan) is considered gentler on aroma.",
+      "isCorrect": true,
+      "explanation": "Correct. It prevents the loss of volatile aromas.",
+      "imagePath": null
+    },
+    {
+      "question": "Kurabito refers to the Master Brewer.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake has low acidity. Its alcohol and Umami help with pairing.",
+      "explanation": "Incorrect. Toji is the Master Brewer. Kurabito are the workers.",
       "imagePath": null
     },
     {
-      "question": "Umami in Sake pairs well with cheese and mushrooms.",
-      "isCorrect": true,
-      "explanation": "Correct. These are all Umami-rich foods.",
-      "imagePath": null
-    },
-    {
-      "question": "Namazake (unpasteurized) must be stored in the fridge.",
-      "isCorrect": true,
-      "explanation": "Correct. Otherwise, it will spoil quickly.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake bottles should be stored lying on their side like wine.",
+      "question": "Toji is the owner of the brewery.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sake has plastic or metal caps usually, and high alcohol can degrade corks. Upright is best.",
+      "explanation": "Incorrect. The owner is 'Kuramoto'. Toji is the head brewer.",
       "imagePath": null
     },
     {
-      "question": "A standard bottle of Sake is 720ml (4go).",
-      "isCorrect": true,
-      "explanation": "Correct. The other standard size is 1.8L (1 sho).",
-      "imagePath": null
-    },
-    {
-      "question": "1 'Go' (serving size) is approximately 180ml.",
-      "isCorrect": true,
-      "explanation": "Correct. This is the volume of a standard Masu or Tokkuri.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake should be poured for you by someone else (in formal settings).",
-      "isCorrect": true,
-      "explanation": "Correct. It is Japanese etiquette to pour for others, not yourself.",
-      "imagePath": null
-    },
-    {
-      "question": "'Kan-zake' means cold Sake.",
+      "question": "Kan-zukuri refers to brewing in the summer.",
       "isCorrect": false,
-      "explanation": "Incorrect. Kan-zake means warmed Sake.",
+      "explanation": "Incorrect. It refers to 'Cold Season Brewing' (Winter).",
       "imagePath": null
     },
     {
-      "question": "'Hiya' traditionally refers to room temperature Sake.",
+      "question": "Sake fermentation is an open fermentation.",
       "isCorrect": true,
-      "explanation": "Correct. Although today it often implies chilled, traditionally it meant unheated (room temp).",
+      "explanation": "Correct. The tanks are usually open at the top (often covered with cloth or sheets for sanitation and temperature control).",
       "imagePath": null
     },
     {
-      "question": "Light exposure causes Sake to turn brown and smell bad.",
-      "isCorrect": true,
-      "explanation": "Correct. This is why Sake bottles are often brown or green.",
-      "imagePath": null
-    },
-    {
-      "question": "Fluorescent light is safe for Sake.",
+      "question": "Saccharification and fermentation happen in separate tanks.",
       "isCorrect": false,
-      "explanation": "Incorrect. Fluorescent light contains UV rays which damage Sake.",
+      "explanation": "Incorrect. They happen in the same tank (Parallel).",
       "imagePath": null
     },
     {
-      "question": "Sake is best served in a flute glass if it is Sparkling.",
+      "question": "Bodaimoto is an ancient starter method using raw rice and water.",
       "isCorrect": true,
-      "explanation": "Correct. To showcase the bubbles.",
+      "explanation": "Correct. It uses 'soyashi-mizu' (lactic-acidified water) and traditional steps; it predates Kimoto.",
       "imagePath": null
     },
     {
-      "question": "Wine glasses are never used for Sake.",
+      "question": "Adding water to Sake is illegal.",
       "isCorrect": false,
-      "explanation": "Incorrect. Wine glasses are excellent for Ginjo styles to appreciate the aroma.",
+      "explanation": "Incorrect. 'Warimizu' is a standard step to adjust alcohol/flavor.",
       "imagePath": null
     },
     {
-      "question": "Sake is higher in calories than water.",
+      "question": "The texture of Sake Kasu (lees) varies depending on the pressing method.",
       "isCorrect": true,
-      "explanation": "Correct. Alcohol and residual sugar contain calories.",
+      "explanation": "Correct. It can be sheets (itakasu), soft paste, or crumble depending on how much liquid is removed.",
       "imagePath": null
     },
     {
-      "question": "Drinking water alongside Sake (Yawaragi-mizu) helps prevent hangovers.",
+      "question": "Muroka means 'No Carbon Filtration'.",
       "isCorrect": true,
-      "explanation": "Correct. It lowers the alcohol concentration in the stomach.",
+      "explanation": "Correct. It does not mean 'unpressed', just no charcoal fining.",
       "imagePath": null
     },
     {
-      "question": "Koshu (aged sake) is usually served ice cold.",
+      "question": "Muroka Nama Genshu is a popular style among modern Sake enthusiasts.",
+      "isCorrect": true,
+      "explanation": "Correct. It is Sake in its rawest, most impactful form.",
+      "imagePath": null
+    },
+    {
+      "question": "Tobin-gakoi refers to collecting Sake in 18L glass bottles.",
+      "isCorrect": true,
+      "explanation": "Correct. Usually done for competition Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "The main purpose of Koji is to produce alcohol.",
       "isCorrect": false,
-      "explanation": "Incorrect. It is often served at room temperature or warm to show its complex flavors.",
+      "explanation": "Incorrect. Koji produces SUGAR. Yeast produces alcohol.",
       "imagePath": null
     },
     {
-      "question": "Sake does not pair well with spicy food.",
+      "question": "Yeast No. 9 is known for high acidity.",
       "isCorrect": false,
-      "explanation": "Incorrect. Sweet or Nigori Sake can pair very well with spicy food.",
+      "explanation": "Incorrect. No. 9 is known for Ginjo aroma and stable fermentation.",
       "imagePath": null
     },
     {
-      "question": "Sake contains gluten.",
+      "question": "Ceramic tanks are the modern standard for fermentation.",
       "isCorrect": false,
-      "explanation": "Incorrect. Premium Sake is gluten-free (rice only).",
+      "explanation": "Incorrect. Stainless steel with enamel coating is the standard.",
       "imagePath": null
     },
     {
-      "question": "Sake has a 'Best Before' date.",
+      "question": "Red Sake (Akazake) is made using wood ash.",
+      "isCorrect": true,
+      "explanation": "Correct. A traditional style from Kumamoto.",
+      "imagePath": null
+    },
+    {
+      "question": "The measurement 'Nihonshu-do' refers to the acidity level.",
       "isCorrect": false,
-      "explanation": "Incorrect. It has a 'Date of Manufacture'. It doesn't 'expire' but flavor degrades over time.",
+      "explanation": "Incorrect. It refers to the specific gravity (SMV) - Sweet vs Dry.",
       "imagePath": null
     },
     {
-      "question": "You should fill a Tokkuri to the very brim.",
+      "question": "Amino Acid Value (Aminosan-do) generally indicates the level of Umami.",
+      "isCorrect": true,
+      "explanation": "Correct. Higher amino acids mean richer, savorier taste.",
+      "imagePath": null
+    },
+    {
+      "question": "Jozo-alcohol is usually distilled from sugar cane or corn.",
+      "isCorrect": true,
+      "explanation": "Correct. It is a neutral distilled alcohol, often produced from fermented sugarcane or molasses, though sources can vary.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake can be made from sticky rice (Mochigome).",
+      "isCorrect": true,
+      "explanation": "Correct. Though uncommon for standard Seishu, glutinous rice may be used in some special products or techniques.",
+      "imagePath": null
+    },
+    {
+      "question": "Hard water fermentation results in 'Onna-zake' (Female Sake).",
       "isCorrect": false,
-      "explanation": "Incorrect. Overfilling can cause spillage, especially when heated (due to expansion).",
+      "explanation": "Incorrect. Hard water makes 'Otoko-zake' (Male Sake - Dry).",
       "imagePath": null
     },
     {
-      "question": "Oxidized Sake smells like curry or caramel.",
+      "question": "Soft water fermentation results in 'Onna-zake' (Female Sake).",
       "isCorrect": true,
-      "explanation": "Correct. These are signs the Sake has been open too long.",
+      "explanation": "Correct. Fushimi Sake is a classic example.",
       "imagePath": null
-    },
+    }
+  ],
+
+  "part3": [
     {
-      "question": "Sake is traditionally measured in 'Koku' (large volume).",
-      "isCorrect": true,
-      "explanation": "Correct. 1 Koku is about 180 liters.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake can be used in cocktails.",
-      "isCorrect": true,
-      "explanation": "Correct. Sake cocktails like 'Sake Martini' are popular.",
-      "imagePath": null
-    },
-    {
-      "question": "Heating Sake increases the perception of sweetness.",
-      "isCorrect": true,
-      "explanation": "Correct. Sweetness is felt more strongly at warmer temperatures.",
-      "imagePath": null
-    },
-    {
-      "question": "Chilling Sake increases the perception of bitterness.",
-      "isCorrect": true,
-      "explanation": "Correct. Cold suppresses sweetness and highlights crispness/bitterness.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake Kasu (lees) is a waste product with no use.",
+      "question": "The 'Date of Manufacture' (Seizo Nengetsu) is a mandatory item on a Sake label.",
       "isCorrect": false,
-      "explanation": "Incorrect. It is highly nutritious and used for pickling and soups.",
+      "explanation": "Incorrect. In Japan, indicating the manufacturing/bottling timing is not mandatory; it is optional (rules were revised).",
       "imagePath": null
     },
     {
-      "question": "The 'Date of Manufacture' on a bottle refers to when it was bottled.",
-      "isCorrect": true,
-      "explanation": "Correct. It indicates the bottling/packing date, not necessarily the brewing date.",
-      "imagePath": null
-    },
-    {
-      "question": "Refrigerating Sake stops it from aging completely.",
+      "question": "Listing the 'Rice Variety' on the label is mandatory for all Sake.",
       "isCorrect": false,
-      "explanation": "Incorrect. It slows it down significantly, but doesn't stop it.",
+      "explanation": "Incorrect. It is optional. However, if listed, 100% of the rice must be that variety (unless a percentage is stated).",
       "imagePath": null
     },
     {
-      "question": "Newspaper is good for wrapping Sake bottles.",
+      "question": "Alcohol content (ABV) must be listed on the label.",
       "isCorrect": true,
-      "explanation": "Correct. It protects the bottle from UV light.",
+      "explanation": "Correct. It is a legal requirement.",
       "imagePath": null
     },
     {
-      "question": "Sake is made in every prefecture of Japan.",
+      "question": "The polishing ratio (Seimai-buai) must be listed for all Tokutei Meisho-shu (Premium Sake).",
       "isCorrect": true,
-      "explanation": "Correct. From Hokkaido to Okinawa, Sake is brewed everywhere.",
+      "explanation": "Correct. For Futsushu (Ordinary Sake), it is optional.",
       "imagePath": null
     },
     {
-      "question": "Sake is traditionally drunk from a glass tumbler.",
+      "question": "If a Sake is labeled 'Junmai', the polishing ratio does not need to be listed.",
       "isCorrect": false,
-      "explanation": "Incorrect. Ceramic or lacquerware is traditional, though glass is common now.",
+      "explanation": "Incorrect. Even for Junmai, the ratio must be displayed to qualify as Premium Sake.",
       "imagePath": null
     },
     {
-      "question": "Sake with a yellow tint is always spoiled.",
+      "question": "To qualify as Tokutei Meisho-shu, the Koji rice ratio must be at least 15%.",
+      "isCorrect": true,
+      "explanation": "Correct. If Koji usage is below 15%, it is classified as Futsushu.",
+      "imagePath": null
+    },
+    {
+      "question": "Ingredients must be listed in descending order of usage.",
       "isCorrect": false,
-      "explanation": "Incorrect. Some Sake has a natural yellow/amber hue, especially if unfiltered or aged.",
+      "explanation": "Incorrect. Sake labels must list ingredients, but the label standard does not simply require a strict 'most-to-least' order like general food labeling.",
       "imagePath": null
     },
     {
-      "question": "Drinking vessel shape affects the taste of Sake.",
+      "question": "'Nihonshu' or 'Seishu' must appear on the label.",
       "isCorrect": true,
-      "explanation": "Correct. The shape controls how the liquid hits your tongue and releases aroma.",
+      "explanation": "Correct. This identifies the tax category of the product.",
       "imagePath": null
     },
     {
-      "question": "'Kiki-choko' is a tasting cup with blue circles at the bottom.",
-      "isCorrect": true,
-      "explanation": "Correct. The blue circles (Snake Eyes) help check clarity and color.",
-      "imagePath": null
-    },
-    {
-      "question": "Salt is sometimes taken with Sake.",
-      "isCorrect": true,
-      "explanation": "Correct. Traditionally, salt was a simple snack to accompany Sake.",
-      "imagePath": null
-    },
-    {
-      "question": "Sake production decreases in the summer.",
-      "isCorrect": true,
-      "explanation": "Correct. Most traditional brewing happens in winter.",
-      "imagePath": null
-    },
-    {
-      "question": "Unopened Sake can be kept for 10 years.",
+      "question": "Sake Meter Value (SMV) is a mandatory label item.",
       "isCorrect": false,
-      "explanation": "Incorrect. Unless it's Koshu (aged sake), it should be drunk within 1 year.",
+      "explanation": "Incorrect. SMV (Nihonshu-do) is optional, though often included.",
       "imagePath": null
     },
     {
-      "question": "Sake pairs poorly with cheese.",
+      "question": "Acidity (San-do) is a mandatory label item.",
       "isCorrect": false,
-      "explanation": "Incorrect. It actually pairs very well due to shared Umami/amino acids.",
+      "explanation": "Incorrect. Acidity is optional.",
+      "imagePath": null
+    },
+    {
+      "question": "'Genshu' label implies the alcohol content is exactly 20%.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It just means 'undiluted'. The ABV can vary (usually 17-20%, but can be lower in low-alcohol Genshu).",
+      "imagePath": null
+    },
+    {
+      "question": "'Teialcohol' refers to Sake with alcohol content below 10%.",
+      "isCorrect": false,
+      "explanation": "Incorrect. There is no strict legal definition, but usually refers to Sake around 8-13% ABV.",
+      "imagePath": null
+    },
+    {
+      "question": "Kijoshu is made by replacing some of the brewing water with Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. This results in a sweet, rich, dessert-like Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "Kijoshu is typically very dry.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is typically sweet (negative SMV) and acidic.",
+      "imagePath": null
+    },
+    {
+      "question": "'Koshu' refers to Sake aged for at least 3 years (industry standard, though not legal).",
+      "isCorrect": true,
+      "explanation": "Correct. The 'Vintage Sake Association' uses the 3-year mark, but legal definitions are loose.",
+      "imagePath": null
+    },
+    {
+      "question": "Aged Sake is always dark brown.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Sake aged at low temperatures (Ice Dome/Fridge) can remain relatively clear.",
+      "imagePath": null
+    },
+    {
+      "question": "Jukusei-ko refers to the aroma of aged Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Aromas include nuts, caramel, dried fruit, and soy sauce.",
+      "imagePath": null
+    },
+    {
+      "question": "Sparkling Sake made by 'In-bottle secondary fermentation' has finer bubbles.",
+      "isCorrect": true,
+      "explanation": "Correct. Similar to the Champagne method.",
+      "imagePath": null
+    },
+    {
+      "question": "Carbonation injection is forbidden for Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is allowed and common for affordable Sparkling Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "'Awa-sake' is a certification for high-quality Sparkling Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. The 'Awa Sake Association' sets strict rules (e.g., secondary fermentation only).",
+      "imagePath": null
+    },
+    {
+      "question": "Nigori Sake is strictly forbidden from being pasteurized.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Nigori can be pasteurized. It just refers to the cloudy texture.",
+      "imagePath": null
+    },
+    {
+      "question": "'Usu-nigori' refers to a lightly cloudy Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. 'Usu' means thin/light.",
+      "imagePath": null
+    },
+    {
+      "question": "Taruzake must be sold in a barrel.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It can be bottled. The requirement is that it has the scent of the wood (Cedar).",
+      "imagePath": null
+    },
+    {
+      "question": "Red Sake (Akazake) gets its color from red rice.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Traditional Akazake gets its color from the reaction of wood ash (alkaline) and sugars/amino acids.",
+      "imagePath": null
+    },
+    {
+      "question": "Red rice (Kodai-mai) can be used to make pink/red Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. The polyphenol anthocyanin in the rice husk creates the color.",
+      "imagePath": null
+    },
+    {
+      "question": "'GI' stands for Geographical Indication.",
+      "isCorrect": true,
+      "explanation": "Correct. It protects the brand value of a specific region.",
+      "imagePath": null
+    },
+    {
+      "question": "GI Hakusan requires the use of water from the Hakusan mountain range.",
+      "isCorrect": true,
+      "explanation": "Correct. Designated in Ishikawa Prefecture.",
+      "imagePath": null
+    },
+    {
+      "question": "GI Nada focuses on the use of 'Miyamizu' water.",
+      "isCorrect": true,
+      "explanation": "Correct. The mineral-rich water is key to the Nada style.",
+      "imagePath": null
+    },
+    {
+      "question": "GI Yamagata requires the Sake to be bottled in Yamagata.",
+      "isCorrect": true,
+      "explanation": "Correct. Brewing and bottling must happen within the prefecture.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake labeled 'Yamahai' is always Junmai.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Yamahai is a starter method. You can have 'Yamahai Honjozo' or 'Yamahai Ginjo'.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake labeled 'Kimoto' typically has lower acidity.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Kimoto usually has higher acidity and richer complexity.",
+      "imagePath": null
+    },
+    {
+      "question": "'Hiya-oroshi' is Sake released in the Spring.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Hiya-oroshi is released in Autumn (after aging over summer).",
+      "imagePath": null
+    },
+    {
+      "question": "Hiya-oroshi is typically pasteurized twice.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is usually pasteurized once (Nama-zume style) before summer aging.",
+      "imagePath": null
+    },
+    {
+      "question": "'Shiboritate' implies freshly pressed Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Usually released in winter/early spring.",
+      "imagePath": null
+    },
+    {
+      "question": "'Shinshu' refers to New Sake of the current brewing year.",
+      "isCorrect": true,
+      "explanation": "Correct. The brewing year (BY) starts in July.",
+      "imagePath": null
+    },
+    {
+      "question": "By law, Sake cannot have an alcohol content higher than 22%.",
+      "isCorrect": true,
+      "explanation": "Correct. If it exceeds 22%, it is classified as a Spirit/Liqueur for tax purposes.",
+      "imagePath": null
+    },
+    {
+      "question": "Zero-sugar Sake (Toshitsu-zero) is impossible to make.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It exists, made by fermenting all sugar into alcohol or using specific processes.",
+      "imagePath": null
+    },
+    {
+      "question": "'Tokubetsu Junmai' requires a label explanation of why it is 'Tokubetsu'.",
+      "isCorrect": true,
+      "explanation": "Correct. E.g., 'Polished to 60%' or 'Use of Yamadanishiki'.",
+      "imagePath": null
+    },
+    {
+      "question": "Only rice grown in Japan can be used for 'Nihonshu'.",
+      "isCorrect": true,
+      "explanation": "Correct. To be legally 'Japanese Sake' (Nihonshu) under GI Japan, domestic rice is required.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake made in the USA can be labeled as 'Nihonshu' in Japan.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It would be labeled as 'Seishu' (Refined Sake) but not 'Nihonshu' (GI defined).",
+      "imagePath": null
+    },
+    {
+      "question": "The 'Brewing Year' (BY) is mandatory on the label.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is optional. Date of Manufacture (Bottling) is mandatory.",
+      "imagePath": null
+    },
+    {
+      "question": "BY2024 starts on July 1st, 2024.",
+      "isCorrect": true,
+      "explanation": "Correct. The brewing year runs from July 1 to June 30.",
+      "imagePath": null
+    },
+    {
+      "question": "A Sake Meter Value (SMV) of +10 implies a very sweet Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. +10 is Very Dry (Karakuchi).",
+      "imagePath": null
+    },
+    {
+      "question": "A Sake Meter Value (SMV) of -10 implies a very sweet Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Negative numbers indicate sweetness.",
+      "imagePath": null
+    },
+    {
+      "question": "Acidity of 2.5 is considered high for standard Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Standard Sake is usually around 1.0 to 1.5.",
+      "imagePath": null
+    },
+    {
+      "question": "A 'Daiginjo' label guarantees the rice was hand-washed.",
+      "isCorrect": false,
+      "explanation": "Incorrect. While common, the label only guarantees the polishing ratio (50% or less) and ingredients.",
+      "imagePath": null
+    },
+    {
+      "question": "'Kin-paku-iri' means Sake containing gold flakes.",
+      "isCorrect": true,
+      "explanation": "Correct. Often served at celebrations.",
+      "imagePath": null
+    },
+    {
+      "question": "Only Junmai Sake can be certified as Organic (JAS).",
+      "isCorrect": false,
+      "explanation": "Incorrect. Organic (JAS) certification depends on compliance with the organic standards and certification, not simply whether the sake is Junmai.",
+      "imagePath": null
+    },
+    {
+      "question": "It is legal to mix Sake with Shochu and call it Seishu.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Seishu must be fermented. Mixing would make it a liqueur or mixed spirit.",
+      "imagePath": null
+    },
+    {
+      "question": "'Han-mai' refers to rice used for Koji making.",
+      "isCorrect": false,
+      "explanation": "Incorrect. 'Han-mai' is rice for the main mash (Kakemai). 'Koji-mai' is for Koji.",
+      "imagePath": null
+    },
+    {
+      "question": "Nama-zume is traditionally associated with Hiya-oroshi.",
+      "isCorrect": true,
+      "explanation": "Correct. Pasteurized once in spring, aged, then bottled raw in autumn.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake can be labeled 'Gluten Free'.",
+      "isCorrect": true,
+      "explanation": "Correct. Premium Sake contains no gluten.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake labels must warn about drinking under age 20 (in Japan).",
+      "isCorrect": true,
+      "explanation": "Correct. This is a mandatory warning.",
+      "imagePath": null
+    },
+    {
+      "question": "'Goku-jo' (Super Premium) is a legally defined grade.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is a marketing term with no legal definition.",
+      "imagePath": null
+    },
+    {
+      "question": "'Naka-dori' on a label indicates it is the middle press fraction.",
+      "isCorrect": true,
+      "explanation": "Correct. Implies high quality and balance.",
+      "imagePath": null
+    },
+    {
+      "question": "'Arabashiri' on a label implies a fresh, possibly slightly rough or fizzy taste.",
+      "isCorrect": true,
+      "explanation": "Correct. The first run of the press.",
+      "imagePath": null
+    },
+    {
+      "question": "The term 'Kuramoto' refers to the brewery owner.",
+      "isCorrect": true,
+      "explanation": "Correct.",
+      "imagePath": null
+    },
+    {
+      "question": "Kasubuai must be listed on the label.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is internal data, rarely listed.",
+      "imagePath": null
+    },
+    {
+      "question": "Calories must be listed on the Sake label.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Nutritional facts are optional in Japan.",
+      "imagePath": null
+    },
+    {
+      "question": "A QR code on the label is mandatory.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is optional but becoming popular for multilingual info.",
+      "imagePath": null
+    }
+  ],
+  "part4": [
+    {
+      "question": "'Hana-bie' (Flower Chill) refers to Sake served at approx. 10°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Like the chill during cherry blossom viewing.",
+      "imagePath": null
+    },
+    {
+      "question": "'Yuki-bie' (Snow Chill) refers to Sake served at approx. 5°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Very cold, which creates a crisp texture.",
+      "imagePath": null
+    },
+    {
+      "question": "'Suzu-hie' (Cool) is approx. 15°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Just slightly cooler than room temperature.",
+      "imagePath": null
+    },
+    {
+      "question": "'Nurukan' refers to Sake heated to approx. 40°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Warm to the touch (body temperature).",
+      "imagePath": null
+    },
+    {
+      "question": "'Atsukan' refers to Sake heated to approx. 50°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Hot Sake, where steam rises.",
+      "imagePath": null
+    },
+    {
+      "question": "'Tobikiri-kan' is Sake heated above 55°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Very hot, often too hot for delicate Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "'Hitohada-kan' means 'Human Skin' temperature (approx 35°C).",
+      "isCorrect": true,
+      "explanation": "Correct. Gentle warmth.",
+      "imagePath": null
+    },
+    {
+      "question": "Warming Sake generally increases the perception of Sweetness.",
+      "isCorrect": true,
+      "explanation": "Correct. Fructose/Glucose is perceived as sweeter when warm.",
+      "imagePath": null
+    },
+    {
+      "question": "Warming Sake generally increases the perception of Umami.",
+      "isCorrect": true,
+      "explanation": "Correct. Savory amino acids expand at warmer temperatures.",
+      "imagePath": null
+    },
+    {
+      "question": "Chilling Sake generally increases the perception of Bitterness.",
+      "isCorrect": true,
+      "explanation": "Correct. Cold temperatures suppress sweetness, highlighting bitterness.",
+      "imagePath": null
+    },
+    {
+      "question": "Ginjo and Daiginjo are best heated to 55°C.",
+      "isCorrect": false,
+      "explanation": "Incorrect. High heat boils off the delicate fruity esters (aroma).",
+      "imagePath": null
+    },
+    {
+      "question": "Kimoto and Yamahai styles generally respond well to heating.",
+      "isCorrect": true,
+      "explanation": "Correct. Their high acidity and rich body soften nicely when warmed.",
+      "imagePath": null
+    },
+    {
+      "question": "A tin (suzu) cup is known for keeping Sake warm/cold and mellowing the taste.",
+      "isCorrect": true,
+      "explanation": "Correct. Tin cups conduct temperature well, and they are traditionally believed to soften/mellow the impression of the sake.",
+      "imagePath": null
+    },
+    {
+      "question": "A 'Kiriko' glass is a traditional faceted glass used for cold Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Popular for summer Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "Using a wine glass for Sake helps to concentrate the aroma.",
+      "isCorrect": true,
+      "explanation": "Correct. Especially beneficial for aromatic Ginjo styles.",
+      "imagePath": null
+    },
+    {
+      "question": "Traditional 'Sakazuki' are flat, wide cups.",
+      "isCorrect": true,
+      "explanation": "Correct. Best for ceremonial sipping, not for analyzing aroma.",
+      "imagePath": null
+    },
+    {
+      "question": "Cedar 'Masu' cups add a woody aroma to the Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. This can be pleasant but may mask delicate Ginjo aromas.",
+      "imagePath": null
+    },
+    {
+      "question": "The 'Wash Effect' in pairing refers to Sake washing away oils and fishy tastes.",
+      "isCorrect": true,
+      "explanation": "Correct. Sake clears the palate for the next bite.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake contains sulfites which cause headaches.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Sake is generally sulfite-free (unlike wine).",
+      "imagePath": null
+    },
+    {
+      "question": "Sake has higher iron content than wine.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Sake has significantly LOWER iron than wine, making it better for seafood.",
+      "imagePath": null
+    },
+    {
+      "question": "Iron in alcohol reacts with lipid peroxides in fish to create a fishy smell.",
+      "isCorrect": true,
+      "explanation": "Correct. This is why red wine (high iron) often clashes with fish.",
+      "imagePath": null
+    },
+    {
+      "question": "Amino acids in Sake can create a harmony with amino acids in food.",
+      "isCorrect": true,
+      "explanation": "Correct. This is the principle of 'Umami Synergy'.",
+      "imagePath": null
+    },
+    {
+      "question": "Kun-shu (Aromatic Sake) like Daiginjo pairs well with heavy, oily meat dishes.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Aromatic Sake is delicate and pairs better with light dishes like white fish carpaccio or herbs.",
+      "imagePath": null
+    },
+    {
+      "question": "Sou-shu (Refreshing Sake) like Nama-zake pairs well with tofu or sashimi.",
+      "isCorrect": true,
+      "explanation": "Correct. The freshness compliments light textures.",
+      "imagePath": null
+    },
+    {
+      "question": "Jun-shu (Rich Sake) like Junmai pairs well with cream sauce or steak.",
+      "isCorrect": true,
+      "explanation": "Correct. The body and acidity cut through the fat.",
+      "imagePath": null
+    },
+    {
+      "question": "Juku-shu (Aged Sake) pairs well with chocolate or blue cheese.",
+      "isCorrect": true,
+      "explanation": "Correct. The oxidative, nutty flavors match intense foods.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake should always be decanted.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Decanting is rare, though sometimes done for reduction or aeration.",
+      "imagePath": null
+    },
+    {
+      "question": "UV light causes 'Nikko-shu' (sunlight smell) in Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. It smells skunky or like burnt hair.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake stored at 30°C will age faster than Sake stored at 5°C.",
+      "isCorrect": true,
+      "explanation": "Correct. Heat accelerates chemical reactions (aging/spoilage).",
+      "imagePath": null
+    },
+    {
+      "question": "Once opened, Sake should be vacuum pumped like wine.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Refrigeration and a tight seal are the main priorities. Vacuum stoppers may help, but they are optional—not a standard requirement.",
+      "imagePath": null
+    },
+    {
+      "question": "Vertical storage is preferred for Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Upright storage is generally preferred for stability and to avoid issues around the closure; keep it cool and away from light.",
+      "imagePath": null
+    },
+    {
+      "question": "The 'Snake Eye' cup is used to check the acidity of Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It is used to check Clarity (transparency) and Color.",
+      "imagePath": null
+    },
+    {
+      "question": "Blue veins in cheese clash with Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. The umami in blue cheese pairs excellently with rich Sake or Koshu.",
+      "imagePath": null
+    },
+    {
+      "question": "Spicy food is impossible to pair with Sake.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Sweet Nigori Sake or Sparkling Sake can balance the heat.",
+      "imagePath": null
+    },
+    {
+      "question": "The concept of 'Mouthfeel' is irrelevant in Sake tasting.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Texture (silky, rough, watery) is a key evaluation point.",
+      "imagePath": null
+    },
+    {
+      "question": "Heating Sake creates more volatile alcohol fumes.",
+      "isCorrect": true,
+      "explanation": "Correct. This can make the Sake smell more alcoholic.",
+      "imagePath": null
+    },
+    {
+      "question": "Microwaving Sake is the best way to heat it.",
+      "isCorrect": false,
+      "explanation": "Incorrect. It heats unevenly. Water bath (Yusen) is the best method.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake is usually served in a pourer called 'Katakuchi' for cold sake.",
+      "isCorrect": true,
+      "explanation": "Correct. An open-mouthed vessel.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake has less acidity than white wine.",
+      "isCorrect": true,
+      "explanation": "Correct. This makes it feel softer on the palate.",
+      "imagePath": null
+    },
+    {
+      "question": "Succinic acid (Kohaku-san) gives Sake a shellfish-like savory taste.",
+      "isCorrect": true,
+      "explanation": "Correct. It is a key Umami acid found in Sake.",
+      "imagePath": null
+    },
+    {
+      "question": "Malic acid (Ringo-san) gives Sake a crisp, apple-like freshness.",
+      "isCorrect": true,
+      "explanation": "Correct. Common in Ginjo styles.",
+      "imagePath": null
+    },
+    {
+      "question": "Lactic acid (Nyu-san) gives Sake a creamy, yogurt-like character.",
+      "isCorrect": true,
+      "explanation": "Correct. Prominent in Kimoto/Yamahai styles.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake is considered 'Vegan' generally.",
+      "isCorrect": true,
+      "explanation": "Correct. No animal products are used (fining agents like egg white are not used in Sake).",
+      "imagePath": null
+    },
+    {
+      "question": "Pickles (Tsukemono) are a traditional palate cleanser for Sake.",
+      "isCorrect": true,
+      "explanation": "Correct.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake can neutralize the strong smell of garlic.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Sake is not a reliable method to neutralize garlic odor; pairing and palate effects are different from deodorizing.",
+      "imagePath": null
+    },
+    {
+      "question": "'Chirori' is a metal vessel used for heating Sake.",
+      "isCorrect": true,
+      "explanation": "Correct. Usually made of tin or copper for good heat conduction.",
+      "imagePath": null
+    },
+    {
+      "question": "It is rude to pour Sake with the left hand (in traditional settings).",
+      "isCorrect": false,
+      "explanation": "Incorrect. Pouring with one hand is sometimes considered casual/rude, but left hand specifically isn't the main taboo. Pouring with *one hand* is the issue.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake is compatible with vinegar-based dishes.",
+      "isCorrect": true,
+      "explanation": "Correct. The amino acids soften the sharp acid of vinegar.",
+      "imagePath": null
+    },
+    {
+      "question": "Sake served 'Mizore' style means it is partially frozen/slushy.",
+      "isCorrect": true,
+      "explanation": "Correct. A refreshing summer style.",
+      "imagePath": null
+    },
+    {
+      "question": "Storing Sake near onions or strong smells is fine.",
+      "isCorrect": false,
+      "explanation": "Incorrect. Alcohol can absorb ambient odors through the cap.",
       "imagePath": null
     }
   ]

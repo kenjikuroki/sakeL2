@@ -9,22 +9,25 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get appTitle => 'Sake Exam L1';
+  String get appTitle => 'Sake Exam L2';
 
   @override
-  String get homeTitle => 'Sake Exam L1: Study & Quiz';
+  String get homeTitle => 'Sake Exam L2: Study & Quiz';
 
   @override
-  String get homeSubtitle => 'Master Sake knowledge in your spare time!';
+  String get homeSubtitle => 'Master Advanced Sake Knowledge!';
 
   @override
-  String get part1Title => 'Ingredients & Basics';
+  String get part1Title => 'Ingredients & Water';
 
   @override
-  String get part2Title => 'Categories & Grades';
+  String get part2Title => 'Production Process';
 
   @override
-  String get part3Title => 'Service & Storage';
+  String get part3Title => 'Labels & Styles';
+
+  @override
+  String get part4Title => 'Serving & Pairing';
 
   @override
   String get reviewWeakness => 'Review Weakness';

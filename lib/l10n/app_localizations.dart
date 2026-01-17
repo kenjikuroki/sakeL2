@@ -101,38 +101,44 @@ abstract class AppLocalizations {
   /// The title of the application
   ///
   /// In en, this message translates to:
-  /// **'Sake Exam L1'**
+  /// **'Sake Exam L2'**
   String get appTitle;
 
   /// Title shown on the home screen
   ///
   /// In en, this message translates to:
-  /// **'Sake Exam L1: Study & Quiz'**
+  /// **'Sake Exam L2: Study & Quiz'**
   String get homeTitle;
 
   /// Subtitle shown on the home screen
   ///
   /// In en, this message translates to:
-  /// **'Master Sake knowledge in your spare time!'**
+  /// **'Master Advanced Sake Knowledge!'**
   String get homeSubtitle;
 
   /// Title for Part 1
   ///
   /// In en, this message translates to:
-  /// **'Ingredients & Basics'**
+  /// **'Ingredients & Water'**
   String get part1Title;
 
   /// Title for Part 2
   ///
   /// In en, this message translates to:
-  /// **'Categories & Grades'**
+  /// **'Production Process'**
   String get part2Title;
 
   /// Title for Part 3
   ///
   /// In en, this message translates to:
-  /// **'Service & Storage'**
+  /// **'Labels & Styles'**
   String get part3Title;
+
+  /// Title for Part 4
+  ///
+  /// In en, this message translates to:
+  /// **'Serving & Pairing'**
+  String get part4Title;
 
   /// Button text to review incorrect answers
   ///
