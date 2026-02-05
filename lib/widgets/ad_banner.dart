@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../utils/ad_manager.dart';
+import '../utils/purchase_manager.dart';
 import 'banner_ad_placeholder.dart';
 
 class AdBanner extends StatefulWidget {
@@ -21,6 +22,7 @@ class AdBanner extends StatefulWidget {
 
 class _AdBannerState extends State<AdBanner> {
   BannerAd? _bannerAd;
+  bool _isPremium = false;
   bool _isLoaded = false;
   ValueNotifier<bool>? _loadingNotifier; // To track listener for cleanup
   
@@ -29,7 +31,22 @@ class _AdBannerState extends State<AdBanner> {
   @override
   void initState() {
     super.initState();
-    _initAd();
+    _isPremium = PurchaseManager.instance.isPremiumNotifier.value;
+    PurchaseManager.instance.isPremiumNotifier.addListener(_onPremiumStatusChanged);
+    if (!_isPremium) {
+      _initAd();
+    }
+  }
+
+  void _onPremiumStatusChanged() {
+    if (mounted) {
+      setState(() {
+        _isPremium = PurchaseManager.instance.isPremiumNotifier.value;
+        if (!_isPremium && _bannerAd == null) {
+          _initAd();
+        }
+      });
+    }
   }
 
   void _initAd() {
@@ -82,6 +99,7 @@ class _AdBannerState extends State<AdBanner> {
 
   @override
   void dispose() {
+    PurchaseManager.instance.isPremiumNotifier.removeListener(_onPremiumStatusChanged);
     _loadingNotifier?.removeListener(_onPreloadedAdChange);
     
     if (!widget.keepAlive) {
@@ -92,6 +110,9 @@ class _AdBannerState extends State<AdBanner> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isPremium) {
+      return const SizedBox.shrink();
+    }
     if (_isLoaded && _bannerAd != null) {
       return SizedBox(
         width: _bannerAd!.size.width.toDouble(),

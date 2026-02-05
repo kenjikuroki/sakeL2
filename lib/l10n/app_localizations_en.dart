@@ -109,4 +109,23 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get buy => 'Buy';
+
+  @override
+  String get sisterAppTitle => 'Deepen your knowledge with our other apps';
+
+  @override
+  String get sisterAppSubtitle => 'Challenge another level!';
+
+  @override
+  String get sisterAppPopupTitle => 'Other Apps';
+
+  @override
+  String get sisterAppPopupBody =>
+      'Opening the App Store to visit the app page.';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get open => 'Open';
 }

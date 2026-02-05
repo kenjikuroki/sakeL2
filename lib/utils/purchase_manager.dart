@@ -1,84 +1,55 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import '../main.dart'; // import PrefsHelper
 
 class PurchaseManager {
   static final PurchaseManager instance = PurchaseManager._internal();
   PurchaseManager._internal();
 
-  final InAppPurchase _iap = InAppPurchase.instance;
-  late StreamSubscription<List<PurchaseDetails>> _subscription;
-  
-  // Product ID for premium unlock
-  static const String productIdPremium = 'sake_l1_premium_content2'; 
-  // TODO: Replace with actual product ID dynamically if needed or keep static
+  static const String premiumProductId = 'sake_l1_premium_content2';
 
   final ValueNotifier<bool> isPremiumNotifier = ValueNotifier(false);
+  final InAppPurchase _iap = InAppPurchase.instance;
+  StreamSubscription<List<PurchaseDetails>>? _subscription;
 
   Future<void> initialize() async {
-    // Check local pref first
-    isPremiumNotifier.value = await PrefsHelper.isPremium();
+    // 1. Check local status first
+    final isPremium = await PrefsHelper.isPremium();
+    isPremiumNotifier.value = isPremium;
 
-    final Stream<List<PurchaseDetails>> purchaseUpdated = _iap.purchaseStream;
+    // 2. Listen to purchase updates
+    final purchaseUpdated = _iap.purchaseStream;
     _subscription = purchaseUpdated.listen((purchaseDetailsList) {
       _listenToPurchaseUpdated(purchaseDetailsList);
     }, onDone: () {
-      _subscription.cancel();
+      _subscription?.cancel();
     }, onError: (error) {
       debugPrint("IAP Error: $error");
     });
+    
+    // 3. Initial connection check (optional but good)
+    await _iap.isAvailable();
   }
 
   void dispose() {
-    _subscription.cancel();
+    _subscription?.cancel();
   }
 
-  Future<List<ProductDetails>> getProducts() async {
-    try {
-      final bool available = await _iap.isAvailable();
-      if (!available) {
-        return [];
-      }
-      const Set<String> _kIds = <String>{productIdPremium};
-      final ProductDetailsResponse response = await _iap.queryProductDetails(_kIds);
-      if (response.notFoundIDs.isNotEmpty) {
-        debugPrint("Products not found: ${response.notFoundIDs}");
-      }
-      return response.productDetails;
-    } catch (e) {
-      debugPrint("Error fetching products: $e");
-      return [];
-    }
-  }
-
-  Future<void> debugUnlock() async {
-    await PrefsHelper.setPremium(true);
-    isPremiumNotifier.value = true;
-  }
-
-  Future<void> buyPremium(ProductDetails productDetails) async {
-    final PurchaseParam purchaseParam = PurchaseParam(productDetails: productDetails);
-    await _iap.buyNonConsumable(purchaseParam: purchaseParam);
-  }
-
-  Future<void> restorePurchases() async {
-    await _iap.restorePurchases();
-  }
-
-  Future<void> _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) async {
-    for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
+  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
+    purchaseDetailsList.forEach((purchaseDetails) async {
       if (purchaseDetails.status == PurchaseStatus.pending) {
-        // Pending
+        // Show loading if needed
       } else {
         if (purchaseDetails.status == PurchaseStatus.error) {
           debugPrint("Purchase Error: ${purchaseDetails.error}");
         } else if (purchaseDetails.status == PurchaseStatus.purchased ||
                    purchaseDetails.status == PurchaseStatus.restored) {
           
-          if (purchaseDetails.productID == productIdPremium) {
-            await _deliverProduct(purchaseDetails);
+          // Verify purchase (simplified for now, ideally server-side)
+          final bool valid = await _verifyPurchase(purchaseDetails);
+          if (valid) {
+            await _unlockPremium();
           }
         }
         
@@ -86,11 +57,51 @@ class PurchaseManager {
           await _iap.completePurchase(purchaseDetails);
         }
       }
+    });
+  }
+
+  Future<bool> _verifyPurchase(PurchaseDetails purchaseDetails) async {
+    // For production without a backend, you might rely on the plugin's status.
+    // Ideally, perform receipt validation here.
+    return true; 
+  }
+
+  Future<void> _unlockPremium() async {
+    await PrefsHelper.setPremium(true);
+    isPremiumNotifier.value = true;
+  }
+
+  Future<void> buyPremium(dynamic productDetails) async {
+    // Fetch products if not provided
+    ProductDetails? actualProduct;
+    if (productDetails is ProductDetails) {
+      actualProduct = productDetails;
+    } else {
+      final response = await _iap.queryProductDetails({premiumProductId});
+      if (response.notFoundIDs.contains(premiumProductId) || response.productDetails.isEmpty) {
+        debugPrint("Product not found: $premiumProductId");
+        return;
+      }
+      actualProduct = response.productDetails.first;
+    }
+
+    final PurchaseParam purchaseParam = PurchaseParam(productDetails: actualProduct);
+    
+    // Assuming non-consumable for premium unlock
+    await _iap.buyNonConsumable(purchaseParam: purchaseParam);
+  }
+
+  Future<void> restorePurchases() async {
+    try {
+      await _iap.restorePurchases();
+    } catch (e) {
+      debugPrint("Restore error: $e");
     }
   }
 
-  Future<void> _deliverProduct(PurchaseDetails purchaseDetails) async {
-    await PrefsHelper.setPremium(true);
-    isPremiumNotifier.value = true;
+  // Helper to fetch product details for Display
+  Future<List<ProductDetails>> getProducts() async {
+    final response = await _iap.queryProductDetails({premiumProductId});
+    return response.productDetails;
   }
 }

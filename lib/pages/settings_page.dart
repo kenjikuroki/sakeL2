@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart'; // import foundation for kDebugMode
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:in_app_purchase/in_app_purchase.dart';
 import '../l10n/app_localizations.dart';
 import '../utils/purchase_manager.dart';
 
@@ -15,14 +13,11 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   String _version = '';
-  List<ProductDetails> _products = [];
-  bool _isLoadingProducts = false;
 
   @override
   void initState() {
     super.initState();
     _loadVersion();
-    _loadProducts();
   }
 
   Future<void> _loadVersion() async {
@@ -34,24 +29,6 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
-  Future<void> _loadProducts() async {
-    setState(() => _isLoadingProducts = true);
-    try {
-      final products = await PurchaseManager.instance.getProducts();
-      if (mounted) {
-        setState(() {
-          _products = products;
-          _isLoadingProducts = false;
-        });
-      }
-    } catch (e) {
-      debugPrint("Error loading products: $e");
-      if (mounted) {
-        setState(() => _isLoadingProducts = false);
-      }
-    }
-  }
-
   Future<void> _launchPrivacyPolicy() async {
     final Uri url = Uri.parse('https://note.com/dapper_flax6182/n/nf18b0b71bba4');
     if (!await launchUrl(url)) {
@@ -59,151 +36,144 @@ class _SettingsPageState extends State<SettingsPage> {
     }
   }
 
-  Future<void> _buyPremium() async {
-    if (_products.isEmpty) return;
-    // Assuming only 1 product for now
-    await PurchaseManager.instance.buyPremium(_products.first);
-  }
-
-  Future<void> _debugUnlock() async {
-    await PurchaseManager.instance.debugUnlock();
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     
     return Scaffold(
+      backgroundColor: const Color(0xFFF9F1F2), // Match Chic Pink background
       appBar: AppBar(
         title: Text(l10n.settingsTitle),
+        elevation: 0,
+        backgroundColor: const Color(0xFFBC6474), // Chic Pink
+        foregroundColor: Colors.white,
       ),
-      body: ListView(
-        children: [
-          // Premium Section
-          ValueListenableBuilder<bool>(
-            valueListenable: PurchaseManager.instance.isPremiumNotifier,
-            builder: (context, isPremium, child) {
-              if (isPremium) {
-                return const SizedBox.shrink(); // Hide if already premium
-              }
-              return Card(
-                margin: const EdgeInsets.all(16),
-                color: Colors.amber[50],
-                child: Padding(
+      body: ValueListenableBuilder<bool>(
+        valueListenable: PurchaseManager.instance.isPremiumNotifier,
+        builder: (_, isPremium, __) {
+          return ListView(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            children: [
+              if (!isPremium) ...[
+                Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        l10n.premiumUnlock,
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.amber),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(l10n.premiumDesc),
-                      const SizedBox(height: 16),
-                      _isLoadingProducts
-                          ? const CircularProgressIndicator()
-                          : Column(
-                              children: [
-                                if (_products.isNotEmpty)
-                                  Container(
-                                    width: double.infinity,
-                                    margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                    height: 56,
-                                    decoration: BoxDecoration(
-                                      gradient: const LinearGradient(
-                                        colors: [Color(0xFFFFA000), Color(0xFFFFC107)],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(28),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.orange.withValues(alpha: 0.4),
-                                          blurRadius: 8,
-                                          offset: const Offset(0, 4),
-                                        ),
-                                      ],
-                                    ),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      child: InkWell(
-                                        onTap: _buyPremium,
-                                        borderRadius: BorderRadius.circular(28),
-                                        child: Center(
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              const Icon(Icons.workspace_premium, color: Colors.white, size: 30),
-                                              const SizedBox(width: 12),
-                                              Text(
-                                                "${l10n.buy} ${_products.first.price}",
-                                                style: TextStyle(
-                                                  fontSize: 22,
-                                                  fontWeight: FontWeight.w900,
-                                                  color: Colors.white,
-                                                  letterSpacing: 1.0,
-                                                  shadows: [
-                                                    Shadow(
-                                                      color: Colors.black.withValues(alpha: 0.2),
-                                                      offset: const Offset(0, 2),
-                                                      blurRadius: 2,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                else ...[
-                                  Text(l10n.noData, style: const TextStyle(color: Colors.red)), // Using noData as placeholder
-                                  const SizedBox(height: 8),
-                                  // Debug/Fallback Button
-                                  if (kDebugMode)
-                                    OutlinedButton(
-                                      onPressed: _debugUnlock,
-                                      child: const Text("Debug Unlock (Free)"),
-                                    ),
-                                ]
-                              ],
-                            ),
-                    ],
+                  child: _buildPremiumCard(l10n),
+                ),
+                const Divider(height: 1, thickness: 0.5),
+              ],
+              
+              if (isPremium)
+                ListTile(
+                  leading: const Icon(Icons.star, color: Colors.orange),
+                  title: const Text("Premium Mode", style: TextStyle(fontWeight: FontWeight.bold)),
+                  subtitle: const Text("Thank you for your support!"),
+                  trailing: const Icon(Icons.check_circle, color: Colors.green),
+                ),
+
+              ListTile(
+                leading: const Icon(Icons.history, color: Color(0xFF5D4037)),
+                title: Text(l10n.restorePurchases, style: const TextStyle(fontWeight: FontWeight.w500)),
+                onTap: () async {
+                  await PurchaseManager.instance.restorePurchases();
+                  if (!mounted) return;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(l10n.restoreSuccess)),
+                  );
+                },
+              ),
+              const Divider(height: 1, thickness: 0.5, indent: 56),
+
+              ListTile(
+                leading: const Icon(Icons.security, color: Color(0xFF5D4037)),
+                title: Text(l10n.privacyPolicy, style: const TextStyle(fontWeight: FontWeight.w500)),
+                onTap: _launchPrivacyPolicy,
+              ),
+              const Divider(height: 1, thickness: 0.5, indent: 56),
+
+              // Version
+              ListTile(
+                leading: const Icon(Icons.info_outline, color: Color(0xFF5D4037)),
+                title: Text(l10n.appVersion, style: const TextStyle(fontWeight: FontWeight.w500)),
+                trailing: Text(
+                  _version,
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 14,
+                    fontFamily: 'Courier', // For a tech look or just plain
                   ),
                 ),
-              );
-            },
+              ),
+              const Divider(height: 1, thickness: 0.5, indent: 56),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildPremiumCard(AppLocalizations l10n) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF9EB), // Light yellow card
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 15,
+            offset: const Offset(0, 5),
           ),
-
-          const Divider(),
-
-          // Actions
-          ListTile(
-            leading: const Icon(Icons.restore),
-            title: Text(l10n.restorePurchases),
-            onTap: () async {
-              await PurchaseManager.instance.restorePurchases();
-              if (context.mounted) {
+        ],
+        border: Border.all(color: Colors.amber.withValues(alpha: 0.2), width: 1),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+      child: Column(
+        children: [
+          Text(
+            l10n.premiumUnlock.contains("Unlock") ? "Remove Ads" : l10n.premiumUnlock,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.orangeAccent,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            l10n.premiumDesc.contains("Unlock") ? "Remove all advertisements from the app" : l10n.premiumDesc,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.brown[700],
+            ),
+          ),
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.infinity,
+            height: 56,
+            child: ElevatedButton(
+              onPressed: () async {
+                await PurchaseManager.instance.buyPremium(null);
+                if (!mounted) return;
                 ScaffoldMessenger.of(context).showSnackBar(
-                   SnackBar(content: Text(l10n.restoreSuccess)),
+                  SnackBar(content: Text(l10n.purchaseSuccess)),
                 );
-              }
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.privacy_tip),
-            title: Text(l10n.privacyPolicy),
-            onTap: _launchPrivacyPolicy,
-          ),
-          
-          const Divider(),
-          
-          // Info
-          ListTile(
-            leading: const Icon(Icons.info),
-            title: Text(l10n.appVersion),
-            trailing: Text(_version),
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.orangeAccent,
+                foregroundColor: Colors.white,
+                elevation: 4,
+                shadowColor: Colors.orangeAccent.withValues(alpha: 0.5),
+                shape: const StadiumBorder(),
+              ).copyWith(
+                elevation: WidgetStateProperty.resolveWith<double>((states) {
+                  if (states.contains(WidgetState.pressed)) return 2;
+                  return 4;
+                }),
+              ),
+              child: Text(
+                l10n.buy,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
         ],
       ),

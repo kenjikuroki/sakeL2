@@ -135,5 +135,11 @@
   "buy": "Buy",
   "@buy": {
     "description": "Label for buy button"
-  }
+  },
+  "sisterAppTitle": "Deepen your knowledge with our other apps",
+  "sisterAppSubtitle": "Challenge another level!",
+  "sisterAppPopupTitle": "Other Apps",
+  "sisterAppPopupBody": "Opening the App Store to visit the app page.",
+  "cancel": "Cancel",
+  "open": "Open"
 }

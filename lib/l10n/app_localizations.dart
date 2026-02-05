@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
+import 'app_localizations_ja.dart';
 
 // ignore_for_file: type=lint
 
@@ -96,6 +97,7 @@ abstract class AppLocalizations {
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
     Locale('es'),
+    Locale('ja'),
   ];
 
   /// The title of the application
@@ -301,6 +303,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Buy'**
   String get buy;
+
+  /// No description provided for @sisterAppTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Deepen your knowledge with our other apps'**
+  String get sisterAppTitle;
+
+  /// No description provided for @sisterAppSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Challenge another level!'**
+  String get sisterAppSubtitle;
+
+  /// No description provided for @sisterAppPopupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Apps'**
+  String get sisterAppPopupTitle;
+
+  /// No description provided for @sisterAppPopupBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening the App Store to visit the app page.'**
+  String get sisterAppPopupBody;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @open.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get open;
 }
 
 class _AppLocalizationsDelegate
@@ -314,7 +352,7 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) =>
-      <String>['en', 'es'].contains(locale.languageCode);
+      <String>['en', 'es', 'ja'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -327,6 +365,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsEn();
     case 'es':
       return AppLocalizationsEs();
+    case 'ja':
+      return AppLocalizationsJa();
   }
 
   throw FlutterError(

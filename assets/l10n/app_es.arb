@@ -33,5 +33,11 @@
   "restoreSuccess": "¡Compras restauradas!",
   "restoreFail": "Nada para restaurar.",
   "locked": "Bloqueado",
-  "buy": "Comprar"
+  "buy": "Comprar",
+  "sisterAppTitle": "Amplía tus conocimientos con nuestras otras aplicaciones",
+  "sisterAppSubtitle": "¡Desafía otro nivel!",
+  "sisterAppPopupTitle": "Otras aplicaciones",
+  "sisterAppPopupBody": "Abriendo la App Store para visitar la página de la aplicación.",
+  "cancel": "Cancelar",
+  "open": "Abrir"
 }
