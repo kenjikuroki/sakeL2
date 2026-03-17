@@ -39,5 +39,15 @@
   "sisterAppPopupTitle": "姉妹アプリ",
   "sisterAppPopupBody": "App Storeを開いて、姉妹アプリのページに移動します。",
   "cancel": "キャンセル",
-  "open": "開く"
+  "open": "開く",
+  "shuffle": "シャッフル",
+  "sequential": "順番通り",
+  "premiumUpgradeTitle": "プレミアムアップグレード",
+  "premiumFeatureSequential": "「連続」モードの解放: 1問目から順番にすべての問題を解くことができます。",
+  "premiumFeatureAds": "広告を完全に非表示: アプリ内のバナー、動画などすべての広告を非表示にします。",
+  "premiumFeatureCategory": "カテゴリー別の弱点復習機能: 苦手な問題をパートごとに絞って効率よく復習できます。",
+  "upgradeNow": "今すぐアップグレード",
+  "whichPartToReview": "どのパートを復習しますか？",
+  "allCategories": "全カテゴリー",
+  "questionCount": "{count} 問"
 }

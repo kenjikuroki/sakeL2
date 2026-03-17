@@ -127,4 +127,38 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get open => '開く';
+
+  @override
+  String get shuffle => 'シャッフル';
+
+  @override
+  String get sequential => '順番通り';
+
+  @override
+  String get premiumUpgradeTitle => 'プレミアムアップグレード';
+
+  @override
+  String get premiumFeatureSequential =>
+      '「連続」モードの解放: 1問目から順番にすべての問題を解くことができます。';
+
+  @override
+  String get premiumFeatureAds => '広告を完全に非表示: アプリ内のバナー、動画などすべての広告を非表示にします。';
+
+  @override
+  String get premiumFeatureCategory =>
+      'カテゴリー別の弱点復習機能: 苦手な問題をパートごとに絞って効率よく復習できます。';
+
+  @override
+  String get upgradeNow => '今すぐアップグレード';
+
+  @override
+  String get whichPartToReview => 'どのパートを復習しますか？';
+
+  @override
+  String get allCategories => '全カテゴリー';
+
+  @override
+  String questionCount(Object count) {
+    return '$count 問';
+  }
 }

@@ -66,6 +66,8 @@ class Quiz {
   }
 }
 
+enum QuizMode { shuffle, sequential }
+
 class PrefsHelper {
   static const String _keyWeakQuestions = 'weak_questions';
   static const String _keyAdCounter = 'ad_counter';
@@ -234,6 +236,7 @@ class _HomePageState extends State<HomePage> {
   int _weaknessCount = 0;
   bool _isLoading = true;
   bool _isPremium = true;
+  QuizMode _quizMode = QuizMode.shuffle;
 
   @override
   void initState() {
@@ -291,9 +294,11 @@ class _HomePageState extends State<HomePage> {
   
   Future<void> _loadUserData() async {
     final weakList = await PrefsHelper.getWeakQuestions();
+    // Filter to only include questions that exist in the current language data
+    final validCount = QuizData.getQuizzesFromTexts(weakList).length;
     if (mounted) {
       setState(() {
-        _weaknessCount = weakList.length;
+        _weaknessCount = validCount;
       });
     }
   }
@@ -301,13 +306,14 @@ class _HomePageState extends State<HomePage> {
   void _startQuiz(BuildContext context, List<Quiz> quizList, String categoryKey, {bool isRandom10 = true}) async {
     List<Quiz> questionsToUse = List<Quiz>.from(quizList);
     
-    if (isRandom10) {
+    if (_quizMode == QuizMode.shuffle) {
       questionsToUse.shuffle();
       if (questionsToUse.length > 10) {
         questionsToUse = questionsToUse.take(10).toList();
       }
     } else {
-      questionsToUse.shuffle();
+      // Sequential mode: Just use the list as is.
+      // Already handles list length in QuizPage via totalQuestions
     }
     
     if (!_isPremium) {
@@ -328,14 +334,243 @@ class _HomePageState extends State<HomePage> {
     _loadUserData();
   }
 
-  void _startWeaknessReview(BuildContext context) async {
+  void _showPremiumDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Header with Gradient
+            Container(
+              height: 120,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFFFFD700), Color(0xFFFFB300)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(Icons.workspace_premium,
+                      color: Color(0xFFFFB300), size: 40),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.premiumUpgradeTitle,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  _FeatureItem(
+                    icon: Icons.format_list_numbered,
+                    text: AppLocalizations.of(context)!.premiumFeatureSequential,
+                  ),
+                  const SizedBox(height: 16),
+                  _FeatureItem(
+                    icon: Icons.block,
+                    text: AppLocalizations.of(context)!.premiumFeatureAds,
+                  ),
+                  const SizedBox(height: 16),
+                  _FeatureItem(
+                    icon: Icons.category,
+                    text: AppLocalizations.of(context)!.premiumFeatureCategory,
+                  ),
+                  const SizedBox(height: 32),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      PurchaseManager.instance.buyPremium(null);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(double.infinity, 54),
+                      elevation: 4,
+                      shadowColor: Colors.orangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(27),
+                      ),
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)!.upgradeNow,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showCategoryReviewSheet() async {
+    final weakTexts = await PrefsHelper.getWeakQuestions();
+    if (!mounted) return;
+
+    // Calculate counts for each partition based on what's available in the current language
+    int p1 = 0, p2 = 0, p3 = 0, p4 = 0;
+
+    final weakSet = weakTexts.toSet();
+
+    for (var q in QuizData.part1) { if (weakSet.contains(q.question)) p1++; }
+    for (var q in QuizData.part2) { if (weakSet.contains(q.question)) p2++; }
+    for (var q in QuizData.part3) { if (weakSet.contains(q.question)) p3++; }
+    for (var q in QuizData.part4) { if (weakSet.contains(q.question)) p4++; }
+
+    int totalCount = p1 + p2 + p3 + p4;
+
+    if (!mounted) return;
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Header
+              Text(
+                AppLocalizations.of(context)!.whichPartToReview,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 32),
+              
+              // List Items
+              _CategoryReviewItem(
+                title: AppLocalizations.of(context)!.allCategories,
+                count: totalCount,
+                icon: Icons.all_inclusive,
+                iconColor: Colors.blueGrey,
+                onTap: () {
+                  Navigator.pop(context);
+                  _startWeaknessReview(null);
+                },
+              ),
+              const Divider(height: 32),
+              _CategoryReviewItem(
+                title: AppLocalizations.of(context)!.part1Title,
+                count: p1,
+                icon: Icons.water_drop,
+                iconColor: Colors.cyan,
+                onTap: () {
+                  Navigator.pop(context);
+                  _startWeaknessReview('part1');
+                },
+              ),
+              const SizedBox(height: 12),
+              _CategoryReviewItem(
+                title: AppLocalizations.of(context)!.part2Title,
+                count: p2,
+                icon: Icons.science,
+                iconColor: Colors.teal,
+                onTap: () {
+                  Navigator.pop(context);
+                  _startWeaknessReview('part2');
+                },
+              ),
+              const SizedBox(height: 12),
+              _CategoryReviewItem(
+                title: AppLocalizations.of(context)!.part3Title,
+                count: p3,
+                icon: Icons.label,
+                iconColor: Colors.purpleAccent,
+                onTap: () {
+                  Navigator.pop(context);
+                  _startWeaknessReview('part3');
+                },
+              ),
+              const SizedBox(height: 12),
+              _CategoryReviewItem(
+                title: AppLocalizations.of(context)!.part4Title,
+                count: p4,
+                icon: Icons.wine_bar,
+                iconColor: Colors.orange,
+                onTap: () {
+                  Navigator.pop(context);
+                  _startWeaknessReview('part4');
+                },
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _startWeaknessReview(String? partKey) async {
     final navigator = Navigator.of(context);
     final weakTexts = await PrefsHelper.getWeakQuestions();
     if (!mounted) return;
     if (weakTexts.isEmpty) return;
 
-    final weakQuizzes = QuizData.getQuizzesFromTexts(weakTexts);
+    List<Quiz> weakQuizzes = QuizData.getQuizzesFromTexts(weakTexts);
     
+    // Filter by category if partKey is provided
+    if (partKey != null) {
+      List<Quiz> categoryQuizzes;
+      switch (partKey) {
+        case 'part1': categoryQuizzes = QuizData.part1; break;
+        case 'part2': categoryQuizzes = QuizData.part2; break;
+        case 'part3': categoryQuizzes = QuizData.part3; break;
+        case 'part4': categoryQuizzes = QuizData.part4; break;
+        default: categoryQuizzes = [];
+      }
+      
+      final categoryQuestions = categoryQuizzes.map((q) => q.question).toSet();
+      weakQuizzes = weakQuizzes.where((q) => categoryQuestions.contains(q.question)).toList();
+    }
+
+    if (weakQuizzes.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.noData)),
+      );
+      return;
+    }
+
     if (!_isPremium) {
       AdManager.instance.preloadAd('result');
       AdManager.instance.preloadInterstitial();
@@ -408,6 +643,21 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(height: 10),
+                  // 1. Mode Toggle
+                  Center(
+                    child: PillToggle(
+                      currentMode: _quizMode,
+                      isPremium: _isPremium,
+                      onModeChanged: (mode) {
+                        setState(() {
+                          _quizMode = mode;
+                        });
+                      },
+                      onLockedTap: _showPremiumDialog,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
                   Text(
                     AppLocalizations.of(context)!.homeSubtitle,
                     textAlign: TextAlign.center,
@@ -421,7 +671,7 @@ class _HomePageState extends State<HomePage> {
                   // Part 1
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part1Title,
-                    icon: Icons.water_drop, // Ingredients & Water
+                    icon: Icons.water_drop,
                     iconColor: Colors.cyan,
                     onTap: () => _startQuizByCategory(context, 'part1'),
                   ),
@@ -430,7 +680,7 @@ class _HomePageState extends State<HomePage> {
                   // Part 2
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part2Title,
-                    icon: Icons.science, // Production Process
+                    icon: Icons.science,
                     iconColor: Colors.teal,
                     onTap: () => _startQuizByCategory(context, 'part2'),
                   ),
@@ -439,7 +689,7 @@ class _HomePageState extends State<HomePage> {
                   // Part 3
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part3Title,
-                    icon: Icons.label, // Labels & Styles
+                    icon: Icons.label,
                     iconColor: Colors.purpleAccent,
                     onTap: () => _startQuizByCategory(context, 'part3'),
                   ),
@@ -448,7 +698,7 @@ class _HomePageState extends State<HomePage> {
                   // Part 4
                   _MenuButton(
                     title: AppLocalizations.of(context)!.part4Title,
-                    icon: Icons.wine_bar, // Serving & Pairing
+                    icon: Icons.wine_bar,
                     iconColor: Colors.orange,
                     onTap: () => _startQuizByCategory(context, 'part4'),
                   ),
@@ -456,21 +706,21 @@ class _HomePageState extends State<HomePage> {
 
                   // Weakness Review
                   ElevatedButton.icon(
-                    onPressed: _weaknessCount > 0 ? () => _startWeaknessReview(context) : null,
+                    onPressed: _weaknessCount > 0 ? _showCategoryReviewSheet : null,
                     icon: const Icon(Icons.refresh),
                     label: Text("${AppLocalizations.of(context)!.reviewWeakness} ($_weaknessCount)"),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueGrey, 
+                      backgroundColor: Colors.redAccent, 
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(vertical: 16),
-                      elevation: 2,
+                      elevation: 4,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                       textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
-                   const SizedBox(height: 40),
+                  const SizedBox(height: 40),
 
                   // Sister App Promotion
                   _buildSisterAppPromo(),
@@ -684,6 +934,209 @@ class _MenuButton extends StatelessWidget {
   }
 }
 
+class PillToggle extends StatelessWidget {
+  final QuizMode currentMode;
+  final ValueChanged<QuizMode> onModeChanged;
+  final bool isPremium;
+  final VoidCallback onLockedTap;
+
+  const PillToggle({
+    super.key,
+    required this.currentMode,
+    required this.onModeChanged,
+    required this.isPremium,
+    required this.onLockedTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 200,
+      height: 48,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Stack(
+        children: [
+          AnimatedAlign(
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.easeInOut,
+            alignment: currentMode == QuizMode.shuffle
+                ? Alignment.centerLeft
+                : Alignment.centerRight,
+            child: Container(
+              width: 100,
+              height: 48,
+              decoration: BoxDecoration(
+                color: const Color(0xFF2C3E50),
+                borderRadius: BorderRadius.circular(24),
+              ),
+            ),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => onModeChanged(QuizMode.shuffle),
+                  behavior: HitTestBehavior.opaque,
+                  child: Center(
+                    child: Icon(
+                      Icons.shuffle,
+                      color: currentMode == QuizMode.shuffle
+                          ? Colors.white
+                          : Colors.grey.shade600,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    if (isPremium) {
+                      onModeChanged(QuizMode.sequential);
+                    } else {
+                      onLockedTap();
+                    }
+                  },
+                  behavior: HitTestBehavior.opaque,
+                  child: Center(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Icon(
+                          Icons.format_list_numbered,
+                          color: currentMode == QuizMode.sequential
+                              ? Colors.white
+                              : Colors.grey.shade600,
+                        ),
+                        if (!isPremium)
+                          Icon(
+                            Icons.lock,
+                            size: 32,
+                            color: Colors.black.withValues(alpha: 0.3),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FeatureItem extends StatelessWidget {
+  final IconData icon;
+  final String text;
+
+  const _FeatureItem({required this.icon, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: Colors.orange.withValues(alpha: 0.1),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(icon, color: Colors.orange, size: 20),
+        ),
+        const SizedBox(width: 16),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 15, color: Colors.black87),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CategoryReviewItem extends StatelessWidget {
+  final String title;
+  final int count;
+  final IconData icon;
+  final Color iconColor;
+  final VoidCallback onTap;
+
+  const _CategoryReviewItem({
+    required this.title,
+    required this.count,
+    required this.icon,
+    required this.iconColor,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.1)),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: iconColor.withValues(alpha: 0.1),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(icon, color: iconColor, size: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    AppLocalizations.of(context)!.questionCount(count.toString()),
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                const Icon(Icons.chevron_right, color: Colors.grey, size: 20),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 
 // -----------------------------------------------------------------------------
 // 3. Quiz Page
@@ -841,14 +1294,6 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.close, color: Colors.black54),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
       extendBodyBehindAppBar: true, 
       body: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
@@ -856,41 +1301,53 @@ class _QuizPageState extends State<QuizPage> {
         child: SafeArea(
           child: Column(
             children: [
+              // Custom Header
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
-                child: Column(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                child: Row(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "${AppLocalizations.of(context)!.questionLabel} $_currentIndex",
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        Text(
-                          "$_currentIndex / ${widget.totalQuestions}",
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black54, size: 22),
+                      onPressed: () => Navigator.of(context).pop(),
                     ),
-                    const SizedBox(height: 8),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: LinearProgressIndicator(
-                        value: _currentIndex / widget.totalQuestions,
-                        minHeight: 8,
-                        backgroundColor: Colors.grey[300],
-                        valueColor: const AlwaysStoppedAnimation<Color>(Colors.orange),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "${AppLocalizations.of(context)!.questionLabel} $_currentIndex",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              Text(
+                                "$_currentIndex / ${widget.totalQuestions}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 4),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(2),
+                            child: LinearProgressIndicator(
+                              value: _currentIndex / widget.totalQuestions,
+                              minHeight: 4,
+                              backgroundColor: Colors.grey[300],
+                              valueColor: const AlwaysStoppedAnimation<Color>(Colors.orange),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
+                    const SizedBox(width: 12),
                   ],
                 ),
               ),
@@ -908,7 +1365,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(bottom: 20, top: 10),
+                padding: const EdgeInsets.only(bottom: 12, top: 4),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -935,10 +1392,10 @@ class _QuizPageState extends State<QuizPage> {
                           }
                         });
                       },
-                      icon: const Icon(Icons.undo),
+                      icon: const Icon(Icons.undo, size: 20),
                       label:  Text(AppLocalizations.of(context)!.retry),
                       style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.black87,
                         elevation: 2,
@@ -955,7 +1412,7 @@ class _QuizPageState extends State<QuizPage> {
                   return const SafeArea(
                     top: false,
                     child: SizedBox(
-                      height: 60,
+                      height: 50,
                       child: AdBanner(adKey: 'quiz'),
                     ),
                   );
@@ -972,7 +1429,7 @@ class _QuizPageState extends State<QuizPage> {
     bool hasImage = quiz.imagePath != null;
 
     return Container(
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -990,7 +1447,7 @@ class _QuizPageState extends State<QuizPage> {
         children: [
           if (hasImage) 
             Expanded(
-              flex: 4,
+              flex: 5,
               child: Container(
                 width: double.infinity,
                 color: Colors.grey[200],
@@ -1011,37 +1468,36 @@ class _QuizPageState extends State<QuizPage> {
               ),
             )
           else 
-            const SizedBox(height: 40),
+            const SizedBox(height: 24),
 
           Expanded(
+            flex: 6,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 8),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Center(
-                    child: Text(
-                      "Q.",
-                      style: TextStyle(
-                        fontSize: hasImage ? 32 : 40,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blueGrey,
-                      ),
+                  Text(
+                    "Q.",
+                    style: TextStyle(
+                      fontSize: hasImage ? 28 : 36,
+                      fontWeight: FontWeight.w900,
+                      color: const Color(0xFFBC6474),
                     ),
                   ),
-                  SizedBox(height: hasImage ? 12 : 24),
+                  const SizedBox(height: 8),
                   Expanded(
                     child: AutoSizeText(
                       quiz.question,
                       style: TextStyle(
-                        fontSize: hasImage ? 24 : 32,
+                        fontSize: hasImage ? 22 : 28,
                         fontWeight: FontWeight.bold,
-                        height: 1.3,
+                        height: 1.4,
                         color: Colors.black87,
                       ),
                       textAlign: TextAlign.left,
-                      minFontSize: 12,
+                      minFontSize: 14,
                       maxLines: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -1051,13 +1507,13 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
           
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.close, color: Color(0xFFD64545), size: 48),
-                Icon(Icons.check, color: Color(0xFF2E7D32), size: 48),
+                Icon(Icons.close, color: const Color(0xFFD64545).withValues(alpha: 0.8), size: 44),
+                Icon(Icons.check, color: const Color(0xFF2E7D32).withValues(alpha: 0.8), size: 44),
               ],
             ),
           ),

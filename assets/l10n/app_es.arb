@@ -39,5 +39,15 @@
   "sisterAppPopupTitle": "Otras aplicaciones",
   "sisterAppPopupBody": "Abriendo la App Store para visitar la página de la aplicación.",
   "cancel": "Cancelar",
-  "open": "Abrir"
+  "open": "Abrir",
+  "shuffle": "Aleatorio",
+  "sequential": "Secuencial",
+  "premiumUpgradeTitle": "Mejora Premium",
+  "premiumFeatureSequential": "Modo 'Secuencial': Resuelva todas las preguntas en orden desde la primera.",
+  "premiumFeatureAds": "Sin anuncios: Oculte todos los banners y videos de la aplicación.",
+  "premiumFeatureCategory": "Repaso por categorías: Repase sus puntos débiles por capítulo de manera eficiente.",
+  "upgradeNow": "Mejorar ahora",
+  "whichPartToReview": "¿Qué parte quieres repasar?",
+  "allCategories": "Todas las categorías",
+  "questionCount": "{count} preguntas"
 }

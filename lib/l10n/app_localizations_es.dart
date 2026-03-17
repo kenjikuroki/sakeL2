@@ -129,4 +129,39 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get open => 'Abrir';
+
+  @override
+  String get shuffle => 'Aleatorio';
+
+  @override
+  String get sequential => 'Secuencial';
+
+  @override
+  String get premiumUpgradeTitle => 'Mejora Premium';
+
+  @override
+  String get premiumFeatureSequential =>
+      'Modo \'Secuencial\': Resuelva todas las preguntas en orden desde la primera.';
+
+  @override
+  String get premiumFeatureAds =>
+      'Sin anuncios: Oculte todos los banners y videos de la aplicación.';
+
+  @override
+  String get premiumFeatureCategory =>
+      'Repaso por categorías: Repase sus puntos débiles por capítulo de manera eficiente.';
+
+  @override
+  String get upgradeNow => 'Mejorar ahora';
+
+  @override
+  String get whichPartToReview => '¿Qué parte quieres repasar?';
+
+  @override
+  String get allCategories => 'Todas las categorías';
+
+  @override
+  String questionCount(Object count) {
+    return '$count preguntas';
+  }
 }

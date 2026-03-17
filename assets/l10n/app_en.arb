@@ -141,5 +141,15 @@
   "sisterAppPopupTitle": "Other Apps",
   "sisterAppPopupBody": "Opening the App Store to visit the app page.",
   "cancel": "Cancel",
-  "open": "Open"
+  "open": "Open",
+  "shuffle": "Shuffle",
+  "sequential": "Sequential",
+  "premiumUpgradeTitle": "Premium Upgrade",
+  "premiumFeatureSequential": "'Sequential' mode: Solve all questions in order from the first.",
+  "premiumFeatureAds": "Remove all ads: Hide all banners and videos in the app.",
+  "premiumFeatureCategory": "Category-based review: Efficiently review your weak points by chapter.",
+  "upgradeNow": "Upgrade Now",
+  "whichPartToReview": "Which part do you want to review?",
+  "allCategories": "All Categories",
+  "questionCount": "{count} questions"
 }

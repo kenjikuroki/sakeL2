@@ -339,6 +339,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open'**
   String get open;
+
+  /// No description provided for @shuffle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle'**
+  String get shuffle;
+
+  /// No description provided for @sequential.
+  ///
+  /// In en, this message translates to:
+  /// **'Sequential'**
+  String get sequential;
+
+  /// No description provided for @premiumUpgradeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Upgrade'**
+  String get premiumUpgradeTitle;
+
+  /// No description provided for @premiumFeatureSequential.
+  ///
+  /// In en, this message translates to:
+  /// **'\'Sequential\' mode: Solve all questions in order from the first.'**
+  String get premiumFeatureSequential;
+
+  /// No description provided for @premiumFeatureAds.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove all ads: Hide all banners and videos in the app.'**
+  String get premiumFeatureAds;
+
+  /// No description provided for @premiumFeatureCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category-based review: Efficiently review your weak points by chapter.'**
+  String get premiumFeatureCategory;
+
+  /// No description provided for @upgradeNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade Now'**
+  String get upgradeNow;
+
+  /// No description provided for @whichPartToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Which part do you want to review?'**
+  String get whichPartToReview;
+
+  /// No description provided for @allCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'All Categories'**
+  String get allCategories;
+
+  /// No description provided for @questionCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} questions'**
+  String questionCount(Object count);
 }
 
 class _AppLocalizationsDelegate
